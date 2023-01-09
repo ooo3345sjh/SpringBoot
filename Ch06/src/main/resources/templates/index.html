@@ -13,13 +13,11 @@
 		<h4>타임리프 출력</h4>
 		<p>[[${tit1}]]</p>
 		<p th:text="${tit2}">내용</p>
-		
 		<h4>타임리프 조건문</h4>
 		<p>
 			<span th:if="${user1.name eq '홍길동'}">user1은 홍길동 입니다.</span>
 			<span th:if="${user1.name eq '김유신'}">user1은 김유신 입니다.</span>
 		</p>
-		
 		<p>
 			<span th:if="${user1.age ge 20}">user1은 성인입니다.</span>
 			<span th:unless="${user1.age ge 20}">user1은 미성년입니다.</span>

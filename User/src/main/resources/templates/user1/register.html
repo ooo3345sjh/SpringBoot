@@ -6,10 +6,10 @@
 	</head>
 <body>
 	<h3>user1 등록</h3>
-	<a href="/Ch05">Ch05 메인</a>
-	<a href="/Ch05/user1/list">user1 목록</a>
+	<a th:href="@{/}">User 메인</a>
+	<a th:href="@{/user1/list}">user1 목록</a>
 	
-	<form action="/Ch05/user1/register" method="post">
+	<form th:action="@{/user1/register}" method="post">
 		<table border="1">
 			<tr>
 				<td>아이디</td>

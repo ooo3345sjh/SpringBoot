@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ch06
+Bundle-SymbolicName: Ch06
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: Ch06
+Export-Package: kr.co.ch06,
+ kr.co.ch06.controller,
+ kr.co.ch06.vo,
+ templates,
+ templates.fragment,
+ templates.sub
