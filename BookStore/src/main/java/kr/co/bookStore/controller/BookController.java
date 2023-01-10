@@ -12,12 +12,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.bookStore.service.BookService;
+import kr.co.bookStore.validation.BookValidation;
 import kr.co.bookStore.vo.BookVO;
 
 @Controller
@@ -27,22 +30,32 @@ public class BookController {
 	@Autowired
 	private BookService service;
 	
+	@InitBinder
+	public void validation(WebDataBinder binder) {
+		binder.setValidator(new BookValidation());
+	}
+	
 	@GetMapping("/list")
 	public void list(Model model) {
 		model.addAttribute("books", service.selectBooks());
 	}
 	
 	@GetMapping("/register")
-	public void register() {}
+	public void register(Model model) {
+		model.addAttribute(new BookVO());
+	}
 	
 	@PostMapping("/register")
-	public void register(@Validated BookVO vo, Errors errors) {
-		System.out.println(vo.getBookname());
-		System.out.println(errors.hasErrors());
-		System.out.println("book :" + vo);
-		service.insertBook(vo);
+	public String register(@Validated BookVO vo, BindingResult  br) {
 		System.out.println("book :" + vo);
 		
+		if(!br.hasErrors()) {
+			service.insertBook(vo);
+			System.out.println("book :" + vo);
+			return "redirect:/book/register";
+		}
+		
+		return "/book/register";
 	}
 	
 	@GetMapping("/modify")

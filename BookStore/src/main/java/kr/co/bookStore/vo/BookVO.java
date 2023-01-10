@@ -19,7 +19,7 @@ import lombok.ToString;
 public class BookVO {
 	private int bookId;
 	
-	@NotBlank(message = "반드시 도서명을 입력해야합니다.")
+//	@NotBlank(message = "반드시 도서명을 입력해야합니다.")
 	private String bookname;
 	
 	private String publisher;
