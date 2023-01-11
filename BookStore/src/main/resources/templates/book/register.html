@@ -3,13 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>user1::register</title>
+		<style>
+			.error {color: red;}
+		</style>
 	</head>
 <body>
 	<h3>도서 등록</h3>
 	<a th:href="@{/}">처음으로</a>
 	<a th:href="@{/book/list}">도서 목록</a>
 	
-	<form th:action="@{/book/register}" method="post">
+	<form th:action="@{/book/register}" th:object="${bookVO}" method="post">
+		<div th:if="${bookVO ne null}">
+	    	<span th:if="${#fields.hasErrors('bookname')}" th:errors="*{bookname}" th:errorclass="error">error!</span>
+		</div>
 		<table border="1">
 			<tr>
 				<td>도서명</td>
