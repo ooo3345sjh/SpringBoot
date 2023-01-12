@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>user1::login</title>
+	</head>
+	<body>
+		<h3>user1 login</h3>
+		<a th:href="@{/}">처음으로</a>
+		<form th:action="@{/user1/login}" method="post">
+			<table border="1">
+				<tr>
+			    	<th>아이디</th>
+			    	<th><input type="text" name='uid'> </th>
+			  	</tr>
+				<tr>
+			    	<th>비밀번호</th>
+			    	<th><input type="password" name='pass'> </th>
+			  	</tr>
+				<tr>
+			    	<th colspan="2" align="right"><input type="submit" value="로그인"></th>
+			  	</tr>
+			</table>
+		</form>		
+	</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<meta charset="UTF-8">
+		<title>user2::loginSuccess</title>
+	</head>
+	<body>
+		<h3>user2 loginSuccess</h3>
+		<p>
+			<span sec:authentication="name"></span>님 반갑습니다.
+			<a th:href="@{/user2/logout}">로그아웃</a>
+		</p>
+	</body>
+</html>
