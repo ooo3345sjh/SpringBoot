@@ -33,19 +33,19 @@ public class User2Controller {
 		return "redirect:/user2/list";
 	}
 	
-	@GetMapping("/user2/modify")
-	public void modify(Model model, int uid) {
+	@GetMapping("/modify")
+	public void modify(Model model, String uid) {
 		model.addAttribute("user", service.selectUser2(uid));
 	}
 
-	@PostMapping("/user2/modify")
+	@PostMapping("/modify")
 	public String modify(User2VO vo) {
 		service.updateUser2(vo);
 		return "redirect:/user2/list";
 	}
 	
-	@GetMapping("/user2/delete")
-	public String delete(int uid) {
+	@GetMapping("/delete")
+	public String delete(String uid) {
 		service.deleteUser2(uid);
 		return "redirect:/user2/list";
 	}

@@ -38,10 +38,10 @@ public class User2Service {
 	public List<User2VO> selectUser2s() {
 		
 		// Mybatis
-		List<User2VO> users = dao.selectUser2s();
+		//List<User2VO> users = dao.selectUser2s();
 		
 		// JPA
-		// List<User2VO> users = repo.findAll();
+		List<User2VO> users = repo.findAll();
 		return users;
 	}
 	

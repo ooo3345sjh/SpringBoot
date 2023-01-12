@@ -106,7 +106,7 @@ public class MainController {
 	
 	@GetMapping("/query13")
 	public String query13() {
-		List<User1VO> vo = repo.findUser1VOByNameEndsWith("수");
+		List<User1VO> vo = repo.findUser1VOByNameEndsWith("고");
 		System.out.println("vo : " + vo);
 		return "redirect:/";
 	}
