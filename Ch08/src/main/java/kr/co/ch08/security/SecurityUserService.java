@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import kr.co.ch08.repository.User2Repo;
+import kr.co.ch08.security.MyUserDetails.MyUserDetailsBuilder;
 import kr.co.ch08.vo.User2VO;
 
 @Service
@@ -29,14 +30,39 @@ public class SecurityUserService implements UserDetailsService {
 			throw new UsernameNotFoundException(username);
 		}
 		
+		
+		// Security 기본 사용자 객체 생성
 		UserDetails userDts = User.builder()
 								.username(user.getUid())
 								.password(user.getPass())
 								.roles("MEMBER")
 								.build();
+		
+		
+		// Setter 초기화
+		MyUserDetails myUser = new MyUserDetails();
+		myUser.setUid(user.getUid());
+		myUser.setPass(user.getPass());
+		myUser.setName(user.getName());
+		myUser.setHp(user.getHp());
+		myUser.setAge(user.getAge());
+		myUser.setRdate(user.getRdate());
+		
+		
+		// 빌드 초기화 
+		UserDetails myUser2 = MyUserDetails.builder()
+									.uid(user.getUid())
+									.pass(user.getPass())
+									.name(user.getName())
+									.hp(user.getHp())
+									.grade(user.getGrade())
+									.age(user.getAge())
+									.rdate(user.getRdate())
+									.build();
+		
 		System.out.println("loadUserByUsername...실행");
 		
-		return userDts;
+		return myUser2;
 	}
 
 }
