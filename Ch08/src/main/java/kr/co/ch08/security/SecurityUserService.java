@@ -1,6 +1,8 @@
 package kr.co.ch08.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,6 +34,7 @@ public class SecurityUserService implements UserDetailsService {
 								.password(user.getPass())
 								.roles("MEMBER")
 								.build();
+		System.out.println("loadUserByUsername...실행");
 		
 		return userDts;
 	}
