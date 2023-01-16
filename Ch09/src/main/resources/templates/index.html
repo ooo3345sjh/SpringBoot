@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>index</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script th:src="@{/js/user1.js}"></script>
+		<script>
+		 $(document).ready(function(){
+				
+				$('.member.list1').click(function(){
+					$.ajax({
+						url: '/Ch09/member',
+						method: 'GET',
+						dateType: 'json',
+						success: function(data){
+							console.log(data);
+						}
+					});
+				})
+				
+				$('.member.list2').click(function(){
+					let uid = 's101';
+					
+					$.ajax({
+						url: '/Ch09/member/' + uid,
+						method: 'GET',
+						dateType: 'json',
+						success: function(data){
+							console.log(data);
+						}
+					});
+				})
+				
+				$('.member.register').click(function(){
+					
+					let jsonData = {
+							"uid":"s101",
+							"name":"김갑수",
+							"hp":"010-1212-3232",
+							"pos":"대리",
+							"dep":103
+					}
+					
+					$.ajax({
+						url: '/Ch09/member',
+						method: 'POST',
+						dateType: 'json',
+						data: jsonData,
+						success: function(data){
+							console.log(data);
+						}
+					});
+				})
+				
+				$('.member.modify').click(function(){
+					
+					let jsonData = {
+							"uid":"s101",
+							"name":"김갑수",
+							"hp":"010-1212-3232",
+							"pos":"부장",
+							"dep":103
+					}
+					
+					$.ajax({
+						url: '/Ch09/member',
+						method: 'PUT',
+						dateType: 'json',
+						data: jsonData,
+						success: function(data){
+							console.log(data);
+						}
+					});
+				})
+				
+				$('.member.delete').click(function(){
+					
+					let uid = 's101';
+					
+					$.ajax({
+						url: '/Ch09/member/' + uid,
+						method: 'DELETE',
+						dateType: 'json',
+						data: uid,
+						success: function(data){
+							console.log(data);
+						}
+					});
+				})
+			})
+		
+		</script>
+	</head>
+	<body>
+		<h3>Ch09.스프링 REST 웹서비스 실습</h3>
+		
+		<h4 >user1</h4>
+		<button class="user1 list1">user1 목록1</button>
+		<button class="user1 list2">user1 목록2</button>
+		<button class="user1 register">user1 등록</button>
+		<button class="user1 modify">user1 수정</button>
+		<button class="user1 delete">user1 삭제</button>
+		
+		<h4 >member</h4>
+		<button class="member list1">member1 목록1</button>
+		<button class="member list2">member1 목록2</button>
+		<button class="member register">member1 등록</button>
+		<button class="member modify">member1 수정</button>
+		<button class="member delete">member1 삭제</button>
+	</body>
+</html>
