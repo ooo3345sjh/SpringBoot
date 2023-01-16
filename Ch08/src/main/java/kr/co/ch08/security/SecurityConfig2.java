@@ -10,10 +10,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfig2 {
+	
+	UsernamePasswordAuthenticationFilter filter = new UsernamePasswordAuthenticationFilter();
 	
 	@Autowired
 	private SecurityUserService service;
@@ -23,9 +26,9 @@ public class SecurityConfig2 {
 		
 		// 인가(접근권한) 설정
 		http.authorizeHttpRequests().antMatchers("/").permitAll(); // 모든 자원에 대해서 모든 사용자 접근 허용
-		http.authorizeHttpRequests().antMatchers("/admin/**").hasRole("ADMIN"); // admin 하위 모든 링크에 대해서 ADMIN에게만 접근 허용 
-		http.authorizeHttpRequests().antMatchers("/member/**").hasAnyRole("ADMIN", "MEMBER"); // member 하위 모든 링크에 대해서 ADMIN, MEMBER에게만 접근 허용
-		http.authorizeHttpRequests().antMatchers("/user2/loginSuccess").hasAnyRole("3", "4", "5"); // /user2/loginSuccess는 ADMIN만 접근 허용
+		http.authorizeHttpRequests().antMatchers("/admin/**").hasRole("5"); // admin 하위 모든 링크에 대해서  ADMIN에게만 접근 허용 
+		http.authorizeHttpRequests().antMatchers("/member/**").hasAnyRole("3", "5"); // member 하위 모든 링크에 대해서 ADMIN, MEMBER에게만 접근 허용
+		//http.authorizeHttpRequests().antMatchers("/user2/loginSuccess").hasAnyRole("3", "4", "5"); // /user2/loginSuccess는 ADMIN만 접근 허용
 		
 		// 자동 로그인 설정
 		http.rememberMe()
@@ -40,7 +43,7 @@ public class SecurityConfig2 {
 		// 로그인 설정
 		http.formLogin()
 		.loginPage("/user2/login")
-		.defaultSuccessUrl("/user2/loginSuccess")
+		.defaultSuccessUrl("/user2/loginSuccess", false)
 		.failureUrl("/user2/login?success=100)")
 		.usernameParameter("uid")
 		.passwordParameter("pass");

@@ -1,11 +1,18 @@
 package kr.co.ch08.controller;
 
-import java.security.Principal;
-
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,13 +34,14 @@ public class User2Controller {
 	public void login() {}
 	
 	@GetMapping("/loginSuccess")
-	public void loginSuccess(Principal principal, Model model) {
-		User2VO vo = null;
+	public void loginSuccess(Model model, Authentication authentication) {
 		
-		if(principal != null) 
-			vo = service.selectUser2(principal.getName());
-		
-		model.addAttribute("user", vo);
+		if(authentication != null) { // null이라는 것은 로그인 인증을 받지 않은 사용자라는 것
+			UserDetails user = (UserDetails)authentication.getPrincipal(); // User의 정보를 가져옴
+			
+			model.addAttribute("user", service.selectUser2(user.getUsername()));
+			model.addAttribute("roles", user.getAuthorities().toString().replaceAll("(\\[|\\])", ""));
+		}
 	}
 	
 	@GetMapping("/register")

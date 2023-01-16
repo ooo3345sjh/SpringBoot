@@ -1,5 +1,7 @@
 package kr.co.ch08.security;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import kr.co.ch08.repository.User2Repo;
-import kr.co.ch08.security.MyUserDetails.MyUserDetailsBuilder;
+//import kr.co.ch08.security.MyUserDetails.MyUserDetailsBuilder;
 import kr.co.ch08.vo.User2VO;
 
 @Service
@@ -35,7 +37,7 @@ public class SecurityUserService implements UserDetailsService {
 		UserDetails userDts = User.builder()
 								.username(user.getUid())
 								.password(user.getPass())
-								.roles("MEMBER")
+								.roles("" + user.getGrade())
 								.build();
 		
 		

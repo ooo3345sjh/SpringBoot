@@ -15,21 +15,22 @@
 				휴대폰: <span sec:authentication="principal.hp">휴대폰번호</span><br/>
 				나이: <span sec:authentication="principal.age">나이</span><br/>
 				가입일: <span sec:authentication="principal.rdate">가입일</span><br/>
+				권한: <span sec:authentication="principal.authorities">권한</span><br/>
 				<a th:href="@{/user2/logout}">로그아웃</a>
 			</p>
-			
+		</div>
+		<div th:if="${user ne null}">
 			<h4>방법2</h4>
-			<p th:if="${user ne null}">
+			<p >
 				아이디: <span>[[${user.uid}]]</span><br/>
 				이름: <span>[[${user.name}]]</span><br/>
 				휴대폰: <span th:text="${user.hp}">휴대폰번호</span><br/>
 				나이: <span th:text="${user.age}">나이</span><br/>
 				가입일: <span th:text="${user.rdate}">가입일</span><br/>
+				권한: <span th:text="${roles}">권한</span><br/>
 				<a th:href="@{/user2/logout}">로그아웃</a>
 			</p>
 		</div>
-		
-		
 		<p sec:authorize="isAnonymous()">
 			로그인을 해야합니다. <a th:href="@{/user2/login}">로그인</a>
 		</p>
