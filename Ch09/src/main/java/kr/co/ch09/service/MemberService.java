@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.ch09.repository.MemberRepositiory;
 import kr.co.ch09.vo.MemberVO;
@@ -14,13 +15,13 @@ public class MemberService {
 	@Autowired
 	private MemberRepositiory repo;
 	
+	@Transactional(rollbackFor = Exception.class)
 	public void insertMemeber(MemberVO vo) {
 		repo.save(vo);
 	};
+	
 	public MemberVO selectMemeber(String uid) {
 		MemberVO vo = repo.findById(uid).get();
-		System.out.println(vo);
-		
 		return vo;
 	};
 	public List<MemberVO> selectMemebers(){
