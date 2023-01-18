@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sboard.dao.UserDAO">
+	<select id="selectTerms" resultType="kr.co.sboard.vo.UserVO">
+		select * from `board_terms`;
+	</select>
+	
+	<select id="select" resultType="kr.co.sboard.vo.UserVO">
+		select * from `board_user`;
+	</select>
+	
+	<insert id="insert" parameterType="kr.co.sboard.vo.UserVO">
+		INSERT INTO `board_user` SET 
+			`uid` = #{uid},
+			`pass` = #{pass}, 
+			`name` = #{name},
+			`nick`= #{nick},
+			`email` = #{email},
+			`hp` = #{hp},
+			`zip` = #{zip},
+			`addr1`= #{addr1},
+			`addr2`= #{addr2},
+			`regip` = #{regip},
+			`rdate`= NOW();
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM `board_user` WHERE `uid` = #{uid}
+	</delete>
+	
+	<update id="modify" parameterType="kr.co.sboard.vo.UserVO">
+		UPDATE `board_user` WHERE `uid` = #{uid}
+	</update>
+</mapper>
