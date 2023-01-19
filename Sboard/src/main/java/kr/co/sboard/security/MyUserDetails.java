@@ -13,9 +13,7 @@ import kr.co.sboard.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @AllArgsConstructor
@@ -25,27 +23,31 @@ public class MyUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
-	private UserEntity user;
+	//private UserEntity user;
+	private String pass;
+	private String uid;
+	private String nick;
+	private int grade;
 	
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// 계정이 갖는 권한 목록
 		List<GrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getGrade()));
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + grade));
 		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
 		// 계정이 갖는 비밀번호
-		return user.getPass();
+		return pass;
 	}
 
 	@Override
 	public String getUsername() {
 		// 계정이 갖는 아이디
-		return user.getUid();
+		return uid;
 	}
 
 	@Override

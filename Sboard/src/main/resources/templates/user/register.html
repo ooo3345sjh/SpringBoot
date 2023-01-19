@@ -5,46 +5,208 @@
     <title>회원가입</title>    
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <script>
-    	window.onload = function(){
-    		const btnCheckUid = document.getElementById('btnCheckUid');
+    	let uidOk 	= false;
+    	let passOk 	= false;
+    	let nameOk 	= false;
+    	let nickOk 	= false;
+    	let emailOk = false;
+    	let hpOk 	= false;
+    	
+    	let reId = /^[a-z0-9_-]{5,20}$/;
+    	let rePass = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+    	let reName  = /^[가-힣]+$/;
+    	let reNick  = /^[a-zA-Z가-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
+    	let reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    	let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
+    	
+    	const contextPath = "[[@{/}]]";
+    	
+    	function ajaxPost(url, jsonData){
     		
-    		btnCheckUid.addEventListener('click', function(){
+    		const xhr = new XMLHttpRequest();
+			
+			xhr.open("POST", contextPath + url);
+			xhr.responseType = "json";
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
+			
+			let data = null;
+			return xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						data = xhr.response;
+						return data;
+					} 
+				} 
+			};
+    		
+    	};
+    	
+    	window.onload = function(){
+    		const inputUid = document.querySelector('input[name=uid]');
+    		const inputPass = document.querySelector('input[name=pass]');
+    		const reconfirmPass = document.querySelector('input[name=reconfirmPass]');
+    		const inputName = document.querySelector('input[name=name]');
+    		const inputNick = document.querySelector('input[name=nick]');
+    		const inputEmail = document.querySelector('input[name=email]');
+    		const btnEmailAuth = document.getElementById('btnEmailAuth');
+    		
+    		inputUid.addEventListener('focusout', function(){
     			
-				let uid = document.querySelector('input[name=uid]').value;
+				let uid = this.value;
+				const resultUid = document.querySelector('.resultUid');
+			
+				if(uid == "") {
+					resultUid.innerText = "아이디를 입력해주세요.";
+					resultUid.style.color = "red";
+					return;
+				} else if (!reId.test(uid)){
+					resultUid.innerText = "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+					resultUid.style.color = "red";
+					return;
+				}
+				
+				let jsonData = {"uid" : uid}
 				
 				// AJAX 전송
-				const xhr = new XMLHttpRequest();
-				xhr.open("POST", "/Sboard/user/checkUid");
-				xhr.responseType = "json";
-				let jsonData = {"uid" : uid}
-				xhr.setRequestHeader("Content-Type", "application/json");
-				
-				xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
-				
-				//xhr.send();
-				
-				xhr.onreadystatechange = function(){
-					if(xhr.readyState == 4){
-						if(xhr.status == 200){
-							const data = xhr.response;
-							console.log(data);
-							
-							const resultUid = document.querySelector('.resultUid');
-					
-							if(data.result == 1){
-								resultUid.innerText = "이미 사용중인 아이디입니다.";
-								resultUid.style.color = "red";
-							} else {
-								resultUid.innerText = "사용가능한 아이디입니다.";
-								resultUid.style.color = "green";								
-							}
-						} else {
-							alert('Request fail...');
-						}
-					} 
-					
+				let data = setTimeout(ajaxPost("user/checkUid", jsonData), 300);
+				console.log("data: " + data);		
+				console.log("data: " + data[0]);		
+				console.log("data: " + data.uid);		
+				console.log("data: " + data.email);		
+				if(data == null){
+					alert('Request fail...');
+					return;
+				}
+			
+				if(data.result == 1){
+					resultUid.innerText = "이미 사용중인 아이디입니다.";
+					resultUid.style.color = "red";
+				} else {
+					resultUid.innerText = "사용가능한 아이디입니다.";
+					resultUid.style.color = "green";
+					uidOk = true;
 				}
     		});
+    		
+    		inputPass.addEventListener('focusout', function(){
+    			
+    			const resultPass = document.querySelector('.resultPass');
+    			let pass = this.value;
+    			
+    			if(pass == ""){
+    				resultPass.innerText = "필수 정보입니다.";
+    				resultPass.style.color = "red";
+    			}
+    			
+    			else if(!rePass.test(pass)){
+    				resultPass.innerText = "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
+    				resultPass.style.color = "red";
+    			}
+    			
+    			else {
+	    			resultPass.innerText = "";
+    			}
+    		});
+    		
+    		reconfirmPass.addEventListener('focusout', function(){
+    			
+    			const resultConfirmPass = document.querySelector('.resultConfirmPass');
+    			let pass = inputPass.value;
+    			let reconfirmPass = this.value;
+
+    			if(reconfirmPass == ""){
+    				resultConfirmPass.innerText = "필수 정보입니다.";
+    				resultConfirmPass.style.color = "red";
+    			}
+    			
+    			else if(reconfirmPass != pass){
+    				resultConfirmPass.innerText = "비밀번호가 일치하지 않습니다.";
+    				resultConfirmPass.style.color = "red";
+    			}
+    			
+    			else {
+    				resultConfirmPass.innerText = "";
+    				passOk = true;
+    			}
+    		});
+    		
+    		inputName.addEventListener('focusout', function(){
+    			let name = this.value;
+    			const resultName = document.querySelector('.resultName');
+    			
+    			if(name == ""){
+    				resultName.innerText = "필수 정보입니다.";
+    				resultName.style.color = "red";
+    			}
+    			
+    			else if(!reName.test(name)){
+    				resultName.innerText = "한글을 사용하세요. (영문, 특수기호, 공백 사용 불가)";
+    				resultName.style.color = "red";
+    			}
+    			else {
+    				resultName.innerText = "";
+    				nameOk = true;
+    			}
+    			
+    		});
+    		
+    		inputNick.addEventListener('focusout', function(){
+    			let nick = this.value;
+    			const resultNick = document.querySelector('.resultNick');
+    			
+    			if(nick == ""){
+    				resultNick.innerText = "필수 정보입니다.";
+    				resultNick.style.color = "red";
+    			}
+    			
+    			else if(!reNick.test(nick)){
+    				resultNick.innerText = "공백없이 한글, 영문, 숫자 입력해주세요.";
+    				resultNick.style.color = "red";
+    			}
+    			else {
+    				resultNick.innerText = "";
+    				nickOk = true;
+    			}
+    			
+    		});
+    		
+    		inputEmail.addEventListener('focusout', function(){
+    			let email = this.value;
+    			const resultEmail = document.querySelector('.resultEmail');
+    			
+    			if(email == ""){
+    				resultEmail.innerText = "필수 정보입니다.";
+    				resultEmail.style.color = "red";
+    			}
+    			
+    			else if(!reEmail.test(email)){
+    				resultEmail.innerText = "이메일 주소를 다시 확인해주세요.";
+    				resultEmail.style.color = "red";
+    			}
+    			
+    			else {
+    				resultEmail.innerText = "";
+    				emailOk = true;
+    			}
+    		});
+    		
+    		btnEmailAuth.addEventListener('click', function(){
+    			if(!emailOk) {
+    				alert('이메일 주소를 다시 확인해주세요.');
+    				return;
+    			}
+    			
+    			let email = document.querySelector('input[name=email]').value;
+    			
+    			let jsonData = { "email" : email};
+    			
+    			let data = ajaxPost("user/checkEmail", jsonData);
+    			
+				console.log(data);
+				
+    		})
+    		
     		
     		
     	}
@@ -67,21 +229,21 @@
                         <th>아이디</th>
                         <td>
                             <input type="text" name="uid" placeholder="아이디 입력"/>
-                            <button type="button" id='btnCheckUid'><img th:src="@{/img/chk_id.gif}" alt="중복확인"/></button>
-                            <span class="resultUid"></span>
+                            <span class="result resultUid"></span>
                         </td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
                         <td>
-                            <input type="password" name="pass1" placeholder="비밀번호 입력"/>
-                            <span class="resultPass"></span>
+                            <input type="password" name="pass" placeholder="비밀번호 입력"/>
+                            <span class="result resultPass"></span>
                         </td>
                     </tr>
                     <tr>
                         <th>비밀번호 확인</th>
                         <td>
-                            <input type="password" name="pass2" placeholder="비밀번호 입력 확인"/>
+                            <input type="password" name="reconfirmPass" placeholder="비밀번호 입력 확인"/>
+                            <span class="result resultConfirmPass"></span>
                         </td>
                     </tr>
                 </table>
@@ -92,6 +254,7 @@
                         <th>이름</th>
                         <td>
                             <input type="text" name="name" placeholder="이름 입력"/>                        
+                            <span class="result resultName"></span>
                         </td>
                     </tr>
                     <tr>
@@ -99,14 +262,19 @@
                         <td>
                             <p>공백없이 한글, 영문, 숫자 입력</p>
                             <input type="text" name="nick" placeholder="별명 입력"/>
-                            <button type="button"><img th:src="@{/img/chk_id.gif}" alt="중복확인"/></button>
-                            <span class="resultNick"></span>
+                            <span class="result resultNick"></span>
                         </td>
                     </tr>                    
                     <tr>
                         <th>이메일</th>
                         <td>
                             <input type="email" name="email" placeholder="이메일 입력"/>
+                            <button type="button" id="btnEmailAuth"><img th:src='@{/images/chk_auth.gif}' alt="인증번호 받기"/></button>
+                            <span class="result resultEmail"></span>
+                            <div class="auth">
+                            	<input type="text" name="auth" placeholder="인증번호 입력"/>
+                                <button type="button" id="btnEmailConfirm"><img th:src='@{/images/chk_confirm.gif}' alt="확인"/></button>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -119,7 +287,7 @@
                         <th>주소</th>
                         <td>
                             <input type="text" name="zip" placeholder="우편번호 검색" readonly/>
-                            <button type="button"><img th:src="@{/img/chk_post.gif}" alt="우편번호 찾기"/></button>
+                            <button type="button"><img th:src="@{/images/chk_post.gif}" alt="우편번호 찾기"/></button>
                             <input type="text" name="addr1" placeholder="기본주소 검색" readonly/>
                             <input type="text" name="addr2" placeholder="상세주소 입력"/>
                         </td>

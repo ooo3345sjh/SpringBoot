@@ -42,9 +42,10 @@ class SboardApplicationTests {
 					.regip("02391232")
 					.build();
 		
-		 int result = service.userInsert(vo);
+		// int result = service.userInsert(vo);
 		 
-		 assertEquals(result, 1);
+		int result = 0; 
+		assertEquals(result, 1);
 		 
 		 log.info("result : " + result);
 	}

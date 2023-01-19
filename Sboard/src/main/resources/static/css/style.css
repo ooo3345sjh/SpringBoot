@@ -176,7 +176,7 @@ footer > p {
 
 /* 회원가입 */
 #user.register {
-    width: 600px;
+    width: 630px;
     height: auto;            
     margin: 60px auto;
     overflow: hidden;
@@ -242,6 +242,9 @@ footer > p {
     border: 1px solid #bebebe;
     background: #e9e9e9;
 }
+
+#user.register  .result { font-size: 11px;}
+#user.register  .auth { margin-top: 5px;}
 
 /* 글목록 */
 #board.list {

@@ -1,8 +1,8 @@
 package kr.co.sboard.service;
 
-import java.util.List;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import kr.co.sboard.dao.UserDAO;
 import kr.co.sboard.repository.UserRepo;
 import kr.co.sboard.vo.UserVO;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class UserService {
 	
@@ -40,11 +42,6 @@ public class UserService {
 	public int userInsert(UserVO vo, HttpServletRequest req) {
 		vo.setPass(PasswordEncoder.encode(vo.getPass1()));
 		vo.setRegip(req.getRemoteAddr());
-		return dao.insert(vo);
-	};
-	
-	public int userInsert(UserVO vo) {
-		vo.setPass(PasswordEncoder.encode(vo.getPass1()));
 		return dao.insert(vo);
 	};
 	
