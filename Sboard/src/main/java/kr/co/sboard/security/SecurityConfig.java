@@ -24,14 +24,14 @@ public class SecurityConfig {
 			
 			// 인가(접근권한) 설정
 			.authorizeHttpRequests(req -> 
-				req.antMatchers("/*", "/user/*").permitAll()
-				//.anyRequest().authenticated()
+				req.antMatchers("/", "/user/*").permitAll()
+				.anyRequest().authenticated()
 			)
 			
 			// 로그인 설정
 			.formLogin(login ->          
 				login.loginPage("/user/login").permitAll()
-				.defaultSuccessUrl("/list")
+				.defaultSuccessUrl("/list?page=1", false)
 				.failureUrl("/user/login?success=100")
 				.passwordParameter("pass")
 				.usernameParameter("uid")

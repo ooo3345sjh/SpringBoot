@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sboard.dao.ArticleDAO">
+	<select id="selectAll" parameterType="java.lang.Integer" resultType="kr.co.sboard.vo.ArticleVO">
+		SELECT a.*, u.nick FROM `board_article` as a 
+		JOIN `board_user` as u 
+		ON a.`uid` = u.`uid`  
+		WHERE `parent` = 0
+		ORDER BY `no` DESC
+		LIMIT #{start}, 10;
+	</select>
+	
+	<select id="select" resultType="java.lang.Integer">
+		SELECT * FROM `board_article`
+	</select>
+	<select id="countAll" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM `board_article`
+	</select>
+	<insert id="insert" parameterType="kr.co.sboard.vo.ArticleVO" useGeneratedKeys="true" keyProperty="no">
+		INSERT INTO `board_article` SET 
+			`title` = #{title},
+			`content` = #{content},
+			<if test="fname.isEmpty() == true">
+			`file`=1,
+			</if>
+			<if test="fname.isEmpty() == false">
+			`file`=0,
+			</if>
+			`uid`= #{uid},
+			`regip` = #{regip},
+			`rdate`= NOW();
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		DELETE FROM `board_article` WHERE `no` = #{no}
+	</delete>
+	
+	<update id="update" parameterType="kr.co.sboard.vo.ArticleVO">
+		UPDATE `board_article` WHERE `uid` = #{uid}
+	</update>
+</mapper>

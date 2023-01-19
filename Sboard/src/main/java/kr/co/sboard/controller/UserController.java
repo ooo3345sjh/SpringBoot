@@ -75,7 +75,5 @@ public class UserController {
 	public Object auth() {
 		return SecurityContextHolder.getContext().getAuthentication();
 	}
-
-	
 	
 }

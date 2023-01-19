@@ -57,5 +57,5 @@ class SboardApplicationTests {
 		assertEquals(1, result);
 		
 	}
-
+	
 }
