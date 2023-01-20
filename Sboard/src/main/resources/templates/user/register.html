@@ -10,6 +10,7 @@
     	let nameOk 	= false;
     	let nickOk 	= false;
     	let emailOk = false;
+    	let emailAuthOk = false;
     	let hpOk 	= false;
     	
     	let reId = /^[a-z0-9_-]{5,20}$/;
@@ -17,34 +18,29 @@
     	let reName  = /^[가-힣]+$/;
     	let reNick  = /^[a-zA-Z가-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
     	let reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    	let reEmailCode = /^[0-9]+$/; 
     	let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
     	
     	const contextPath = "[[@{/}]]";
     	
+    	// AJAX API
     	function ajaxPost(url, jsonData){
-    		
-    		const xhr = new XMLHttpRequest();
-			
-			xhr.open("POST", contextPath + url);
-			xhr.responseType = "json";
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
-			
-			var result = null;
-			
-			
-			return xhr.onreadystatechange = function(){
+    		return new Promise(function(resolve, rejext){
+	    		const xhr = new XMLHttpRequest();
 				
-				if(xhr.readyState == 4){
-					if(xhr.status == 200){
-						let data = xhr.response;
-						result = data.result
-						console.log(data);
-						return data;
-					} 
-				} 
-			};
-    		
+	    		xhr.onload = function(){
+					if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+						resolve(xhr.response);
+					} else {
+						reject({status : xhr.status, statusText : xhr.statusText});
+					}
+				}
+	    		
+				xhr.open("POST", contextPath + url);
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.responseType = "json";
+				xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
+    		});
     	};
     	
     	window.onload = function(){
@@ -54,12 +50,18 @@
     		const inputName = document.querySelector('input[name=name]');
     		const inputNick = document.querySelector('input[name=nick]');
     		const inputEmail = document.querySelector('input[name=email]');
+    		const inputEmailCode = document.querySelector('input[name=emailAuth]');
     		const btnEmailAuth = document.getElementById('btnEmailAuth');
     		
+    		const resultUid = document.querySelector('.resultUid');
+    		const resultPass = document.querySelector('.resultPass');
+    		const resultConfirmPass = document.querySelector('.resultConfirmPass');
+    		const resultNick = document.querySelector('.resultNick');
+    		const resultEmail = document.querySelector('.resultEmail');
+    		const resultEmailCode = document.querySelector('.resultEmailCode');
+    		
     		inputUid.addEventListener('focusout', function(){
-    			
 				let uid = this.value;
-				const resultUid = document.querySelector('.resultUid');
 			
 				if(uid == "") {
 					resultUid.innerText = "아이디를 입력해주세요.";
@@ -74,29 +76,27 @@
 				let jsonData = {"uid" : uid}
 				
 				// AJAX 전송
-				let data = setTimeout(ajaxPost("user/checkUid", jsonData), 300);
-				console.log("data: " + data);		
-				console.log("data: " + data[0]);		
-				console.log("data: " + data.uid);		
-				console.log("data: " + data.email);		
-				if(data == null){
-					alert('Request fail...');
-					return;
-				}
-			
-				if(data.result == 1){
-					resultUid.innerText = "이미 사용중인 아이디입니다.";
-					resultUid.style.color = "red";
-				} else {
-					resultUid.innerText = "사용가능한 아이디입니다.";
-					resultUid.style.color = "green";
-					uidOk = true;
-				}
+				ajaxPost("user/checkUid", jsonData).then((response) =>{
+					console.log(response);
+					if(response == null){
+						alert('Request fail...');
+						return;
+					}
+				
+					if(response.result == 1){
+						resultUid.innerText = "이미 사용중인 아이디입니다.";
+						resultUid.style.color = "red";
+					} else {
+						resultUid.innerText = "사용가능한 아이디입니다.";
+						resultUid.style.color = "green";
+						uidOk = true;
+					}
+				}).catch((errorMsg)=>{
+					console.log(errorMsg)
+				});
     		});
     		
     		inputPass.addEventListener('focusout', function(){
-    			
-    			const resultPass = document.querySelector('.resultPass');
     			let pass = this.value;
     			
     			if(pass == ""){
@@ -115,8 +115,6 @@
     		});
     		
     		reconfirmPass.addEventListener('focusout', function(){
-    			
-    			const resultConfirmPass = document.querySelector('.resultConfirmPass');
     			let pass = inputPass.value;
     			let reconfirmPass = this.value;
 
@@ -158,7 +156,6 @@
     		
     		inputNick.addEventListener('focusout', function(){
     			let nick = this.value;
-    			const resultNick = document.querySelector('.resultNick');
     			
     			if(nick == ""){
     				resultNick.innerText = "필수 정보입니다.";
@@ -178,7 +175,6 @@
     		
     		inputEmail.addEventListener('focusout', function(){
     			let email = this.value;
-    			const resultEmail = document.querySelector('.resultEmail');
     			
     			if(email == ""){
     				resultEmail.innerText = "필수 정보입니다.";
@@ -206,11 +202,44 @@
     			
     			let jsonData = { "email" : email};
     			
-    			let data = ajaxPost("user/checkEmail", jsonData);
-    			
-				console.log(data);
-				
+    			ajaxPost("user/checkEmail", jsonData).then((response) =>{
+					console.log(response);
+					
+					if(response == null){
+						alert('Request fail...');
+						return;
+					}
+					console.log(response.result);
+					if(response.result != 0){
+						resultEmail.innerText = "이미 사용중인 이메일입니다.";
+						resultEmail.style.color = "red";
+					} else if(response.status == 0){
+						resultEmail.innerText = "이메일 전송에 실패 했습니다. 다시 시도 해주세요.";
+						resultEmail.style.color = "red";
+					} else {
+						resultEmail.innerText = "사용가능한 이메일입니다.";
+						resultEmail.style.color = "green";
+						emailOk = true;
+					}
+				}).catch((errorMsg)=>{
+					console.log(errorMsg)
+				});
     		})
+    		
+    		
+    		inputEmailCode.addEventListener('keyup', function(){
+    			emailCode = this.value;
+    			
+    			if(!reEmailCode.test(emailCode)){
+    				resultEmailCode.innerText = "숫자만 입력해주세요.";
+    				resultEmailCode.style.color = "red";
+	    			this.value = '';
+    			}
+    			
+    			
+    		});
+    		
+    		
     		
     		
     		
@@ -277,8 +306,9 @@
                             <button type="button" id="btnEmailAuth"><img th:src='@{/images/chk_auth.gif}' alt="인증번호 받기"/></button>
                             <span class="result resultEmail"></span>
                             <div class="auth">
-                            	<input type="text" name="auth" placeholder="인증번호 입력"/>
+                            	<input type="text" name="emailAuth" placeholder="인증번호 입력"/>
                                 <button type="button" id="btnEmailConfirm"><img th:src='@{/images/chk_confirm.gif}' alt="확인"/></button>
+	                            <span class="result resultEmailCode"></span>
                             </div>
                         </td>
                     </tr>

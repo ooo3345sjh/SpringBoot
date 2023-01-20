@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,13 +40,12 @@ public class ArticleService {
 	@Autowired
 	private FileService fileService;
 	
-	public void getArticles(int page, Map<String, Object> map){
+	public void getArticles(Model model, int page){
+		PageHandler pageHandler = new PageHandler(dao.countAll(), page);  		// 페이징 처리
+		List<ArticleVO> articles =  dao.selectAll(pageHandler.getLimitStart()); // 게시물 조회
 		
-		PageHandler pageHandler = new PageHandler(dao.countAll(), page);
-		List<ArticleVO> articles =  dao.selectAll(pageHandler.getBeginPage());
-		
-		map.put("pageHandler", pageHandler);
-		map.put("articles", articles);
+		model.addAttribute("pageHandler", pageHandler);
+		model.addAttribute("articles", articles);
 	};
 	
 	public ArticleVO getArticle(int no) {

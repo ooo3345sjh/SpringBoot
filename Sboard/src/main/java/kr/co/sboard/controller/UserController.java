@@ -53,27 +53,35 @@ public class UserController {
 		model.addAttribute("termsDTO", service.selectTerms());
 	}
 	
-	@PostMapping("/checkUid")
-	@ResponseBody
-	public Map<String, String> checkUid(@RequestBody Map<String, String> map) {
-		Integer result = service.countByUid(map.get("uid"));
-		log.info(result.toString());
-		map.put("result", result.toString());
-		return map;
-	}
-	
-	@PostMapping("/checkEmail")
-	@ResponseBody
-	public Map<String, Object> checkEmail(@RequestBody Map<String, Object> map) {
-		emailService.send(map);
-		log.info(map.toString());
-		return map;
-	}
-	
 	@GetMapping("/auth")
 	@ResponseBody
 	public Object auth() {
 		return SecurityContextHolder.getContext().getAuthentication();
+	}
+	
+	@ResponseBody
+	@PostMapping("/checkUid")
+	public Map<String, String> checkUid(@RequestBody Map<String, String> map) {
+		Integer result = service.countByUid(map.get("uid"));
+		map.put("result", result.toString());
+		return map;
+	}
+	
+	@ResponseBody
+	@PostMapping("/checkEmail")
+	public Map<String, Object> checkEmail(@RequestBody Map<String, Object> map) {
+		
+		// 중복 메일 체크
+		int result = service.countByEmail((String)map.get("email"));
+		log.info((String)map.get("email"));
+		System.out.println("sdasd");
+		// 결과 저장
+		map.put("result", result);
+		/*
+		// 결과가 0이면 이메일 전송
+		if(result == 0) emailService.send(map);
+		*/
+		return map;
 	}
 	
 }

@@ -7,8 +7,12 @@
 		select * from `board_terms`;
 	</select>
 	
-	<select id="select" resultType="kr.co.sboard.vo.UserVO">
+	<select id="select" parameterType="String" resultType="kr.co.sboard.vo.UserVO">
 		select * from `board_user`;
+	</select>
+
+	<select id="countByEmail" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM `board_user` WHERE `email`= #{email}
 	</select>
 	
 	<insert id="insert" parameterType="kr.co.sboard.vo.UserVO">

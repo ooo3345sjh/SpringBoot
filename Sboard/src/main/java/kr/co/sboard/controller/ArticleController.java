@@ -7,10 +7,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.sboard.entity.UserEntity;
 import kr.co.sboard.service.ArticleService;
@@ -25,10 +27,8 @@ public class ArticleController {
 	private ArticleService service;
 	
 	@GetMapping("/list")
-	public void list(Model model, int page) {
-		Map<String, Object> map = new HashMap<>();
-		service.getArticles(page, map);
-		model.addAttribute("map", map);
+	public void list(Model model, int page) { 
+		service.getArticles(model, page); 
 	}
 	
 	@GetMapping("/modify")
@@ -45,5 +45,10 @@ public class ArticleController {
 		service.write(vo);
 	}
 	
+	@GetMapping("/auth")
+	@ResponseBody
+	public Object auth() {
+		return SecurityContextHolder.getContext().getAuthentication();
+	}
 
 }

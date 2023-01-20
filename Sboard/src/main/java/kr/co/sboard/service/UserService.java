@@ -53,4 +53,8 @@ public class UserService {
 		return repo.countUserEntityByUid(uid);
 	}
 	
+	public int countByEmail(String email) {
+//		return dao.countByEmail(email);
+		return repo.countUserEntityByEmail(email);
+	}
 }

@@ -24,7 +24,8 @@ public class SecurityConfig {
 			
 			// 인가(접근권한) 설정
 			.authorizeHttpRequests(req -> 
-				req.antMatchers("/", "/user/*").permitAll()
+				req.antMatchers("/").permitAll()
+				.antMatchers("/user/*").hasRole("ANONYMOUS")
 				.anyRequest().authenticated()
 			)
 			

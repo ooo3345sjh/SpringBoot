@@ -11,9 +11,8 @@
 		ORDER BY `no` DESC
 		LIMIT #{start}, 10;
 	</select>
-	
-	<select id="select" resultType="java.lang.Integer">
-		SELECT * FROM `board_article`
+	<select id="select" parameterType="int" resultType="kr.co.sboard.vo.ArticleVO">
+		SELECT * FROM `board_article` WHERE `no`= #{no}
 	</select>
 	<select id="countAll" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM `board_article`

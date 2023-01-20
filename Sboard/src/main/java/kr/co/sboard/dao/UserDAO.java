@@ -17,5 +17,5 @@ public interface UserDAO {
 	public int delete(String uid);
 	public int insert(UserVO vo);
 	public int modify(UserVO vo);
-	
+	public int countByEmail(String email);
 }
