@@ -7,15 +7,16 @@
 		SELECT * FROM `board_file`;
 	</select>
 	
-	<select id="select" resultType="java.lang.Integer">
-		SELECT * FROM `board_file` WHERE `no` = #{no};
+	<select id="select" parameterType="int" resultType="kr.co.sboard.vo.FileVO">
+		
+		SELECT * FROM `board_file` WHERE `fno` = #{fno};
 	</select>
 	
 	<insert id="insert" parameterType="kr.co.sboard.vo.FileVO">
 		INSERT INTO `board_file` SET 
 			`parent` = #{parent},
 			`newName`= #{newName},
-			`oriName` = #{oriName},
+			`oriName` = #{oriName};
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.Integer">
@@ -23,6 +24,6 @@
 	</delete>
 	
 	<update id="update" parameterType="kr.co.sboard.vo.FileVO">
-		UPDATE `board_file` WHERE `no` = #{no}
+		UPDATE `board_file` SET `download`= `download` + 1 WHERE `fno` = #{fno}
 	</update>
 </mapper>

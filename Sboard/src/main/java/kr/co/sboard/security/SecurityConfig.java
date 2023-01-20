@@ -32,7 +32,7 @@ public class SecurityConfig {
 			// 로그인 설정
 			.formLogin(login ->          
 				login.loginPage("/user/login").permitAll()
-				.defaultSuccessUrl("/list?page=1", false)
+				.defaultSuccessUrl("/list?page=1")
 				.failureUrl("/user/login?success=100")
 				.passwordParameter("pass")
 				.usernameParameter("uid")

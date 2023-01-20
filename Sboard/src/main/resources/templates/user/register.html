@@ -21,6 +21,8 @@
     	let reEmailCode = /^[0-9]+$/; 
     	let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
     	
+    	let receiveEmailCode = 0; // 이메일 인증 코드
+    	
     	const contextPath = "[[@{/}]]";
     	
     	// AJAX API
@@ -36,12 +38,14 @@
 					}
 				}
 	    		
-				xhr.open("POST", contextPath + url);
+				xhr.open("GET", contextPath + url);
 				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.setRequestHeader("uid", "uid");
 				xhr.responseType = "json";
 				xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
     		});
     	};
+    	
     	
     	window.onload = function(){
     		const inputUid = document.querySelector('input[name=uid]');
@@ -60,6 +64,8 @@
     		const resultEmail = document.querySelector('.resultEmail');
     		const resultEmailCode = document.querySelector('.resultEmailCode');
     		
+    		
+    		// 아이디 입력
     		inputUid.addEventListener('focusout', function(){
 				let uid = this.value;
 			
@@ -96,6 +102,8 @@
 				});
     		});
     		
+    		
+    		// 패스워드 입력
     		inputPass.addEventListener('focusout', function(){
     			let pass = this.value;
     			
@@ -114,6 +122,7 @@
     			}
     		});
     		
+    		// 패스워드 확인 입력
     		reconfirmPass.addEventListener('focusout', function(){
     			let pass = inputPass.value;
     			let reconfirmPass = this.value;
@@ -134,6 +143,7 @@
     			}
     		});
     		
+    		// 이름 입력
     		inputName.addEventListener('focusout', function(){
     			let name = this.value;
     			const resultName = document.querySelector('.resultName');
@@ -154,6 +164,7 @@
     			
     		});
     		
+    		// 별명 입력
     		inputNick.addEventListener('focusout', function(){
     			let nick = this.value;
     			
@@ -173,6 +184,7 @@
     			
     		});
     		
+    		// 이메일 입력
     		inputEmail.addEventListener('focusout', function(){
     			let email = this.value;
     			
@@ -192,6 +204,7 @@
     			}
     		});
     		
+    		// 이메일 인증코드 전송
     		btnEmailAuth.addEventListener('click', function(){
     			if(!emailOk) {
     				alert('이메일 주소를 다시 확인해주세요.');
@@ -209,7 +222,7 @@
 						alert('Request fail...');
 						return;
 					}
-					console.log(response.result);
+					
 					if(response.result != 0){
 						resultEmail.innerText = "이미 사용중인 이메일입니다.";
 						resultEmail.style.color = "red";
@@ -217,6 +230,7 @@
 						resultEmail.innerText = "이메일 전송에 실패 했습니다. 다시 시도 해주세요.";
 						resultEmail.style.color = "red";
 					} else {
+						receiveEmailCode = response.code;
 						resultEmail.innerText = "사용가능한 이메일입니다.";
 						resultEmail.style.color = "green";
 						emailOk = true;
@@ -227,16 +241,16 @@
     		})
     		
     		
+    		// 이메일 인증 코드 입력
     		inputEmailCode.addEventListener('keyup', function(){
-    			emailCode = this.value;
-    			
+    			emailCode1 = this.value;
+    			console.log(receiveEmailCode);
+    			/*
     			if(!reEmailCode.test(emailCode)){
     				resultEmailCode.innerText = "숫자만 입력해주세요.";
     				resultEmailCode.style.color = "red";
 	    			this.value = '';
-    			}
-    			
-    			
+    			}*/
     		});
     		
     		

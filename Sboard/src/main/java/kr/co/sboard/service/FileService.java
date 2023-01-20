@@ -15,7 +15,9 @@ public class FileService {
 	private FileDAO dao;
 	
 	public FileVO getFile(int no) {
-		return dao.select(no);
+		FileVO vo = dao.select(no); // 파일 조회
+		dao.update(vo);				// 파일 다운로드 수 +1
+		return vo;
 	};
 	
 	public List<FileVO> getFiles(){
@@ -29,6 +31,7 @@ public class FileService {
 	public int remove(int no) {
 		return dao.delete(no);
 	};
+	
 	public int modify(FileVO vo) {
 		return dao.update(vo);
 	};

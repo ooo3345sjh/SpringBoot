@@ -19,6 +19,7 @@
         <main id="board" class="write">
             
             <form th:action="@{/write}" method="post" enctype="multipart/form-data">
+            	<input type="hidden" name='page' th:value="${param.page}">
             	<input type="hidden" name='uid' th:value="${#authentication.principal.uid}">
             	<input type="hidden" name='regip' th:value="${#authentication.details.remoteAddress}">
                 <table border="0">
@@ -38,7 +39,7 @@
                 </table>
 
                 <div>
-                    <a th:href="@{/list}" class="btn btnCancel">취소</a>
+                    <a th:href="@{/list(page=${param.page})}" class="btn btnCancel">취소</a>
                     <input type="submit" value="작성완료" class="btn btnComplete"/>
                 </div>
             </form>

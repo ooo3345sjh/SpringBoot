@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -59,9 +60,20 @@ public class UserController {
 		return SecurityContextHolder.getContext().getAuthentication();
 	}
 	
-	@ResponseBody
+	/*@ResponseBody
 	@PostMapping("/checkUid")
 	public Map<String, String> checkUid(@RequestBody Map<String, String> map) {
+		Integer result = service.countByUid(map.get("uid"));
+		map.put("result", result.toString());
+		return map;
+	}*/
+	
+	@ResponseBody
+	@GetMapping("/checkUid")
+	public Map<String, String> checkUid(@RequestHeader Map<String, String> map) {
+		log.info(map.toString());
+		log.info(map.get("uid"));
+		
 		Integer result = service.countByUid(map.get("uid"));
 		map.put("result", result.toString());
 		return map;
@@ -77,10 +89,10 @@ public class UserController {
 		System.out.println("sdasd");
 		// 결과 저장
 		map.put("result", result);
-		/*
+		
 		// 결과가 0이면 이메일 전송
 		if(result == 0) emailService.send(map);
-		*/
+		
 		return map;
 	}
 	

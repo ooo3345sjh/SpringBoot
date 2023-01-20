@@ -10,7 +10,7 @@ import kr.co.sboard.vo.FileVO;
 @Mapper
 @Repository
 public interface FileDAO {
-	public FileVO select(int no);
+	public FileVO select(int fno);
 	public List<FileVO> selectAll();
 	public int insert(FileVO vo);
 	public int delete(int no);

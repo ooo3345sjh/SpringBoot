@@ -1,8 +1,5 @@
 package kr.co.sboard.vo;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +27,7 @@ public class ArticleVO {
 	
 	// 추가 필드
 	private String nick;
+	private FileVO fileVO;
 	
 	public String getRdate(){return rdate.substring(2, 10);}
 }

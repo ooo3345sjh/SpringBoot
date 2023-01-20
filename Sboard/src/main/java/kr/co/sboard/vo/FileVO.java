@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class FileVO {
-	
 	private Integer fno;
 	private Integer parent;
 	private String newName;
