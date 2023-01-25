@@ -36,8 +36,8 @@ public class UserEntity implements UserDetails {
 	private String hp;
 	private Integer grade;
 	private String zip;
-	private String addr1;
-	private String addr2;
+	private String addr;
+	private String addrDetail;
 	private String regip;
 	private String rdate;
 	private String wdate;

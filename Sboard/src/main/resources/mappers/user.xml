@@ -7,8 +7,17 @@
 		select * from `board_terms`;
 	</select>
 	
-	<select id="select" parameterType="String" resultType="kr.co.sboard.vo.UserVO">
+	<select id="selectAll" parameterType="String" resultType="kr.co.sboard.vo.UserVO">
 		select * from `board_user`;
+	</select>
+	
+	<select id="checkDuplicate" parameterType="kr.co.sboard.vo.UserVO" resultType="kr.co.sboard.vo.UserVO">
+		SELECT * FROM `board_user` WHERE
+		 	`uid` = #{uid} OR
+		 	`name` = #{name} OR
+		 	`nick` = #{nick} OR
+		 	`email` = #{email} OR
+		 	`hp` = #{hp} ;
 	</select>
 
 	<select id="countByEmail" parameterType="String" resultType="int">
@@ -24,8 +33,8 @@
 			`email` = #{email},
 			`hp` = #{hp},
 			`zip` = #{zip},
-			`addr1`= #{addr1},
-			`addr2`= #{addr2},
+			`addr`= #{addr},
+			`addrDetail`= #{addrDetail},
 			`regip` = #{regip},
 			`rdate`= NOW();
 	</insert>

@@ -43,7 +43,7 @@
 	                <a th:href="@{/list(page=*{beginPage}-1)}" class="prev">이전</a>
             	</th:block>
             	
-       			<th:block th:each="num:${#numbers.sequence(pageHandler.beginPage,pageHandler.endPage)}">
+       			<th:block th:each="num:${#numbers.sequence(pageHandler.beginPage, pageHandler.endPage)}">
                 	<a  th:href="@{/list(page=${num})}" th:class="${num == pageHandler.page ? 'num current':'num'}">
                 		[[${num}]]
                 	</a>
