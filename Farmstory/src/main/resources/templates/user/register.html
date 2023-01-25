@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/layout">
+<th:block layout:fragment="main">
+    <main id="user" class="register">
+
+        <form th:action="@{/user/register}" method="post">
+            <table border="1">
+                <caption>사이트 이용정보 입력</caption>
+                <tr>
+                    <th>아이디</th>
+                    <td>
+                        <input type="text" name="uid" placeholder="아이디 입력"/>
+                        <span class="result resultUid"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td>
+                        <input type="password" name="pass" placeholder="비밀번호 입력"/>
+                        <span class="result resultPass"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>비밀번호 확인</th>
+                    <td>
+                        <input type="password" name="reconfirmPass" placeholder="비밀번호 입력 확인"/>
+                        <span class="result resultConfirmPass"></span>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="1">
+                <caption>개인정보 입력</caption>
+                <tr>
+                    <th>이름</th>
+                    <td>
+                        <input type="text" name="name" placeholder="이름 입력"/>
+                        <span class="result resultName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>별명</th>
+                    <td>
+                        <p>공백없이 한글, 영문, 숫자 입력</p>
+                        <input type="text" name="nick" placeholder="별명 입력"/>
+                        <span class="result resultNick"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td>
+                        <input type="email" name="email" placeholder="이메일 입력"/>
+                        <button type="button" id="btnEmailAuth"><img th:src='@{/images/chk_auth.gif}' alt="인증번호 받기"/></button>
+                        <span class="result resultEmail"></span>
+                        <div class="auth">
+                            <input type="text" name="emailAuth" placeholder="인증번호 입력"/>
+                            <button type="button" id="btnEmailConfirm"><img th:src='@{/images/chk_confirm.gif}' alt="확인"/></button>
+                            <span class="result resultEmailCode"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>휴대폰</th>
+                    <td>
+                        <input type="text" name="hp" placeholder="- 포함 13자리 입력"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>주소</th>
+                    <td>
+                        <input type="text" name="zip" placeholder="우편번호 검색" readonly/>
+                        <button type="button"><img th:src="@{/images/chk_post.gif}" alt="우편번호 찾기"/></button>
+                        <input type="text" name="addr1" placeholder="기본주소 검색" readonly/>
+                        <input type="text" name="addr2" placeholder="상세주소 입력"/>
+                    </td>
+                </tr>
+            </table>
+
+            <div>
+                <a th:href="@{/user/login}" class="btnCancel">취소</a>
+                <input type="submit" class="btnRegister" value="회원가입"/>
+            </div>
+        </form>
+    </main>
+</th:block>
+</html>
+
+

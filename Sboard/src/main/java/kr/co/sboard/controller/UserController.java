@@ -1,7 +1,5 @@
 package kr.co.sboard.controller;
 
-import java.net.http.HttpRequest;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,12 +10,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.sboard.service.EmailService;
@@ -86,7 +82,7 @@ public class UserController {
 		// 중복 메일 체크
 		int result = service.countByEmail((String)map.get("email"));
 		log.info((String)map.get("email"));
-		System.out.println("sdasd");
+		
 		// 결과 저장
 		map.put("result", result);
 		

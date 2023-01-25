@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/layout">
+<th:block layout:fragment="main">
+    <main id="user" class="terms">
+        <table border="0">
+            <caption>사이트 이용약관</caption>
+            <tr>
+                <td>
+                    <textarea class="terms" readonly></textarea>
+                    <label><input type="checkbox" class="terms" id='checkTerms'>&nbsp;동의합니다.</label>
+                </td>
+            </tr>
+        </table>
+
+        <table border="0">
+            <caption>개인정보 취급방침</caption>
+            <tr>
+                <td>
+                    <textarea class="privacy" readonly></textarea>
+                    <label><input type="checkbox" class="privacy" id='checkPrivacy'>&nbsp;동의합니다.</label>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <a th:href="@{/user/login}" class="cancel">취소</a>
+            <a th:href="@{/user/register}" class="next" onclick="return nextBtn();">다음</a>
+        </p>
+    </main>
+</th:block>
+</html>
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="asideUp">
+    <th:block th:if="${group != null}">
+        <div id="sub">
+            <div><img th:src="@{/images/sub_top_tit1.png}" alt="INTRODUCTION"></div>
+            <section class="cate1">
+                <aside>
+                    <img th:src="@{/images/sub_aside_cate1_tit.png}" alt="팜스토리 소개"/>
+
+                    <ul class="lnb">
+                        <th:block th:each="cate,i:${groupEn}">
+                            <li th:classappend="${cate}=='notice'?'on'"><a th:href="@{/board/list(group=_community,cate=${cate})}">[[${groupKo.get(i)}]]</a></li>
+
+                        </th:block>
+                        <li><a th:href="@{/hello}">인사말</a></li>
+                        <li class="on"><a th:href="@{/direction}">찾아오시는 길</a></li>
+                    </ul>
+                </aside>
+    </th:block>
+</th:block>
+
+<th:block th:fragment="asideDown">
+    <th:block th:if="${group != null}">
+          </section>
+        </div>
+    </th:block>
+</th:block>
+</html>
+
