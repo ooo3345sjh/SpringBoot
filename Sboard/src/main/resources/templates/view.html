@@ -29,13 +29,13 @@
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td><textarea name="content" readonly>[[${content}]]</textarea></td>
+                    <td><textarea name="content" readonly>[[*{content}]]</textarea></td>
                 </tr>
             </table>
 
             <div>
-                <a th:href="@{#}" class="btn btnRemove">삭제</a>
-                <a th:href="@{/modify}" class="btn btnModify">수정</a>
+                <a th:href="@{/delete(page=${param.page}, no=${param.no})}" class="btn btnRemove">삭제</a>
+                <a th:href="@{/modify(page=${param.page}, no=${param.no})}" class="btn btnModify">수정</a>
                 <a th:href="@{/list/(page=${param.page})}" class="btn btnList">목록</a>
             </div>
 

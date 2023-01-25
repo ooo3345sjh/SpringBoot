@@ -56,10 +56,13 @@
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.Integer">
-		DELETE FROM `board_article` WHERE `no` = #{no}
+		DELETE a.*, f.* FROM `board_article` a 
+		LEFT JOIN `board_file` f
+		ON a.`no` = f.`parent`
+		WHERE a.`no` = #{no} OR a.`parent` = #{no}
 	</delete>
 	
 	<update id="update" parameterType="kr.co.sboard.vo.ArticleVO">
-		UPDATE `board_article` WHERE `uid` = #{uid}
+		UPDATE `board_article` SET `title`= #{title}, `content`=#{content} WHERE `no` = #{no}
 	</update>
 </mapper>

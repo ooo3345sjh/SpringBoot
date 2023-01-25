@@ -10,7 +10,7 @@ import kr.co.sboard.vo.ArticleVO;
 @Mapper
 @Repository
 public interface ArticleDAO {
-	public List<ArticleVO> selectAll(int beginPage);
+	public List<ArticleVO> selectAll(int limitStart);
 	public ArticleVO select(int no);
 	public int insert(ArticleVO vo);
 	public int delete(int no);

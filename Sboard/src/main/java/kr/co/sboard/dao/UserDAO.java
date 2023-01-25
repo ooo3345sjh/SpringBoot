@@ -18,4 +18,5 @@ public interface UserDAO {
 	public int insert(UserVO vo);
 	public int modify(UserVO vo);
 	public int countByEmail(String email);
+	public List<UserVO> checkDuplicate(UserVO vo);
 }
