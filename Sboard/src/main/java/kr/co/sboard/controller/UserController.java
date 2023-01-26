@@ -14,10 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.InitBinder;
->>>>>>> 3d18ff8e65f172dd9431b3f71a0ee6230049834d
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -109,12 +106,7 @@ public class UserController {
 	public Map<String, Object> checkEmail(@RequestBody Map<String, Object> map) {
 		
 		// 중복 메일 체크
-<<<<<<< HEAD
-		int result = service.countByEmail((String)map.get("email"));
-		log.info((String)map.get("email"));
-=======
 		int result = userService.countByEmail((String)map.get("email"));
->>>>>>> 3d18ff8e65f172dd9431b3f71a0ee6230049834d
 		
 		// 결과 저장
 		map.put("result", result);

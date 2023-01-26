@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<th:block layout:fragment="main">
+    <main id="board" class="list">
+
+        <table border="0">
+            <caption>글목록</caption>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>글쓴이</th>
+                <th>날짜</th>
+                <th>조회</th>
+            </tr>
+           <tr th:each="article,i:${articles}" th:object=${pageHandler}>
+               <td>[[*{totalCnt-limitStart} - ${i.index}]]</td>
+               <td><a th:href="@{/view(no=${article.no}, page=${param.page})}" th:text="|${article.title} [${article.comment}]|"></a></td>
+               <td>[[${article.nick}]]</td>
+               <td>[[${article.rdate}]]</td>
+               <td>[[${article.hit}]]</td>
+           </tr>
+
+       </table>
+
+       <div class="page" th:object="${pageHandler}">
+
+           <th:block th:if="*{showPrev}">
+               <a th:href="@{/{group}(group=${group},cate=${cate}, page=*{beginPage}-1)}" class="prev">이전</a>
+           </th:block>
+
+           <th:block th:each="num:${#numbers.sequence(pageHandler.beginPage, pageHandler.endPage)}">
+               <a  th:href="@{/{group}(group=${group}, cate=${cate}, page=${num})}" th:class="${num == pageHandler.page ? 'num current':'num'}">
+                   [[${num}]]
+               </a>
+           </th:block>
+
+           <th:block th:if="*{showNext}">
+               <a th:href="@{/{group}(group=${group}, cate=${cate}, page=*{endPage}+1)}" class="next">다음</a>
+           </th:block>
+
+       </div>
+
+       <a th:href="@{/write(page=${param.page})}" class="btnWrite">글쓰기</a>
+   </main>
+</th:block>
+</html>

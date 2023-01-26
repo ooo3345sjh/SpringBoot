@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 윗 부분 -->
 <th:block th:fragment="asideUp">
-    <th:block th:if="${group != null}">
+    <th:block th:if="${param.cate != null}">
         <div id="sub">
-            <div><img th:src="@{/images/sub_top_tit1.png}" alt="INTRODUCTION"></div>
-            <section class="cate1">
+            <div><img th:src="@{/images/sub_top_{group}_tit.png(group=${group})}" th:alt="${group}"></div>
+            <section th:class="${group}">
                 <aside>
-                    <img th:src="@{/images/sub_aside_cate1_tit.png}" alt="팜스토리 소개"/>
+                    <img th:src="@{/images/sub_aside_{group}_tit.png(group=${group})}" alt="팜스토리 소개"/>
 
                     <ul class="lnb">
-                        <th:block th:each="cate,i:${groupEn}">
-                            <li th:classappend="${cate}=='notice'?'on'"><a th:href="@{/board/list(group=_community,cate=${cate})}">[[${groupKo.get(i)}]]</a></li>
+                        <th:block th:each="cateEn,i:${cateList_En}">
+
+                            <li th:classappend="${cateEn eq cate}?'on':''">
+                                <a th:href="@{/{group}(group=${group}, cate=${cateEn})}">[[${cateList_Ko[i.index]}]]</a>
+                            </li>
 
                         </th:block>
-                        <li><a th:href="@{/hello}">인사말</a></li>
-                        <li class="on"><a th:href="@{/direction}">찾아오시는 길</a></li>
                     </ul>
                 </aside>
+                <article>
+                    <nav>
+                        <th:block th:each="cateEn,i:${cateList_En}">
+                            <th:block th:if="${cateEn eq cate}">
+
+                                <img th:src="@{/images/sub_nav_tit_{cate}_tit.png(cate=${cate})}" th:alt="${cateList_Ko[i.index]}"/>
+                                <p>
+                                    HOME > [[${group_Ko}]] > <em>[[${cateList_Ko[i.index]}]]</em>
+                                </p>
+
+                            </th:block>
+                        </th:block>
+                    </nav>
     </th:block>
 </th:block>
 
+
+<!-- 밑 부분 -->
 <th:block th:fragment="asideDown">
     <th:block th:if="${group != null}">
+            </article>
           </section>
         </div>
     </th:block>
