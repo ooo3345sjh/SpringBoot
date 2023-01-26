@@ -5,16 +5,16 @@
 <th:block th:fragment="asideUp">
     <th:block th:if="${param.cate != null}">
         <div id="sub">
-            <div><img th:src="@{/images/sub_top_{group}_tit.png(group=${group})}" th:alt="${group}"></div>
-            <section th:class="${group}">
+            <div><img th:src="@{/images/sub_top_{group}_tit.png(group=${param.group})}" th:alt="${param.group}"></div>
+            <section th:class="${param.group}">
                 <aside>
-                    <img th:src="@{/images/sub_aside_{group}_tit.png(group=${group})}" alt="팜스토리 소개"/>
+                    <img th:src="@{/images/sub_aside_{group}_tit.png(group=${param.group})}" alt="팜스토리 소개"/>
 
                     <ul class="lnb">
                         <th:block th:each="cateEn,i:${cateList_En}">
 
-                            <li th:classappend="${cateEn eq cate}?'on':''">
-                                <a th:href="@{/{group}(group=${group}, cate=${cateEn})}">[[${cateList_Ko[i.index]}]]</a>
+                            <li th:classappend="${#strings.equals(cateEn, param.cate)} ?'on':''">
+                                <a th:href="@{/gnb(group=${param.group}, cate=${cateEn})}">[[${cateList_Ko[i.index]}]]</a>
                             </li>
 
                         </th:block>
@@ -25,7 +25,7 @@
                         <th:block th:each="cateEn,i:${cateList_En}">
                             <th:block th:if="${cateEn eq cate}">
 
-                                <img th:src="@{/images/sub_nav_tit_{cate}_tit.png(cate=${cate})}" th:alt="${cateList_Ko[i.index]}"/>
+                                <img th:src="@{/images/sub_nav_tit_{cate}_tit.png(cate=${param.cate})}" th:alt="${cateList_Ko[i.index]}"/>
                                 <p>
                                     HOME > [[${group_Ko}]] > <em>[[${cateList_Ko[i.index]}]]</em>
                                 </p>
@@ -39,7 +39,7 @@
 
 <!-- 밑 부분 -->
 <th:block th:fragment="asideDown">
-    <th:block th:if="${group != null}">
+    <th:block th:if="${param.group != null}">
             </article>
           </section>
         </div>

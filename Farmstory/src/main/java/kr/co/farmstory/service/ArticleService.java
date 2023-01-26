@@ -30,7 +30,6 @@ public class ArticleService {
 		log.info("ArticleService getArticles...");
 
 		if(page == null) page = 1;
-
 		PageHandler pageHandler = new PageHandler(dao.countAll(), page);  		// 페이징 처리
 		List<ArticleVO> articles =  dao.selectAll(pageHandler.getLimitStart()); // 게시물 조회
 		
@@ -52,8 +51,9 @@ public class ArticleService {
 		// 로그인된 객체를 가져온다.
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		WebAuthenticationDetails details = (WebAuthenticationDetails)auth.getDetails();
-		
-		vo.setUid(auth.getName());		// uid 저장
+
+//		vo.setUid(auth.getName());		// uid 저장
+		vo.setUid("a101");		// uid 저장
 		vo.setRegip(details.getRemoteAddress());	// regip 저장
 		
 		// 글 등록

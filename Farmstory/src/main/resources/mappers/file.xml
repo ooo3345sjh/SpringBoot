@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.farmstory.dao.FileDAO">
+	<select id="selectAll" resultType="kr.co.farmstory.vo.FileVO">
+		SELECT * FROM `board_file`;
+	</select>
+	
+	<select id="select" parameterType="int" resultType="kr.co.farmstory.vo.FileVO">
+		
+		SELECT * FROM `board_file` WHERE `fno` = #{fno};
+	</select>
+	
+	<insert id="insert" parameterType="kr.co.farmstory.vo.FileVO">
+		INSERT INTO `board_file` SET 
+			`parent` = #{parent},
+			`newName`= #{newName},
+			`oriName` = #{oriName};
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		DELETE FROM `board_file` WHERE `no` = #{no}
+	</delete>
+	
+	<update id="update" parameterType="kr.co.farmstory.vo.FileVO">
+		UPDATE `board_file` SET `download`= `download` + 1 WHERE `fno` = #{fno}
+	</update>
+</mapper>

@@ -10,7 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script th:src="@{/js/ajaxAPI.js}"></script>
+    <script th:src="@{/js/deleteArticle.js}"></script>
     <script>
+        const contextPath = "[[@{/}]]";
+
         $(function(){
             $('.slider > ul').bxSlider({
                 slideWidth: 980,
@@ -36,11 +40,11 @@
             <img th:src="@{/images/head_txt_img.png}" alt="3만원 이상 무료배송"/>
 
             <ul class="gnb">
-                <li><a th:href="@{/introduction(cate='hello')}">팜스토리소개</a></li>
-                <li><a th:href="@{/market(cate='market')}"><img th:src="@{/images/head_menu_badge.png}" alt="30%"/>장보기</a></li>
-                <li><a th:href="@{/croptalk(cate='story')}">농작물이야기</a></li>
-                <li><a th:href="@{/event(cate='event')}">이벤트</a></li>
-                <li><a th:href="@{/community(cate='notice')}">커뮤니티</a></li>
+                <li><a th:href="@{/gnb(group='introduction', cate='hello')}">팜스토리소개</a></li>
+                <li><a th:href="@{/gnb(group='market', cate='market')}"><img th:src="@{/images/head_menu_badge.png}" alt="30%"/>장보기</a></li>
+                <li><a th:href="@{/gnb(group='croptalk', cate='story')}">농작물이야기</a></li>
+                <li><a th:href="@{/gnb(group='event', cate='event')}">이벤트</a></li>
+                <li><a th:href="@{/gnb(group='community', cate='notice')}">커뮤니티</a></li>
             </ul>
         </header>
 

@@ -29,6 +29,5 @@ public class ArticleVO {
 	private String nick;
 	private FileVO fileVO;
 	private String page;
-	
-	public String getRdate(){return rdate.substring(2, 10);}
+
 }
