@@ -3,7 +3,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <th:block layout:fragment="main">
-
     <main id="board" class="view">
 
         <table th:object = "${article}">
@@ -14,7 +13,10 @@
             </tr>
             <tr th:if="*{file == 1}">
                 <th>파일</th>
-                <td><a th:href="@{/download(fno=*{fileVO.fno})}">[[*{fileVO.oriName}]] </a><span>[[*{fileVO.download}]]</span>회 다운로드</td>
+                <td>
+                    <a th:href="@{/gnb/download(fno=*{fileVO.fno})}">[[*{fileVO.oriName}]] </a>
+                    <span>[[*{fileVO.download}]]</span>회 다운로드
+                </td>
             </tr>
             <tr>
                 <th>내용</th>
@@ -53,8 +55,39 @@
                     <input type="submit" class="btn btnComplete" value="작성완료"/>
                 </div>
             </form>
+                    <button class="test">test</button>
         </section>
     </main>
+</th:block>
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+        window.onload = function() {
+            const btnRemove = document.querySelector('.btnRemove');
+            const btnGoList = document.querySelector('.btnList');
+
+            btnRemove.addEventListener("click", function(e){
+                e.preventDefault();
+                const urlParams = new URL(location.href).searchParams;
+                const no = urlParams.get('no');
+                const group = urlParams.get('group');
+                const cate = urlParams.get('cate');
+                const page = urlParams.get('page');
+
+                let jsonData = {"group":group, "cate":cate, "page":page, "no":no};
+                ajaxPost("gnb/delete", jsonData).then((response) => {
+
+                    if(response.result =! 0)
+                        location.href = contextPath + "gnb" + response.queryString;
+
+                    else
+                        alert('삭제에 실패했습니다.');
+
+                }).catch((errorMsg) => {
+                    console.log(errorMsg)
+                });
+            });
+        };
+    </script>
 </th:block>
 </html>
 

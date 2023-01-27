@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.farmstory.dao.ArticleDAO">
-	<select id="selectAll" parameterType="java.lang.Integer" resultType="kr.co.farmstory.vo.ArticleVO">
+	<select id="selectAll" parameterType="kr.co.farmstory.vo.SearchCondition" resultType="kr.co.farmstory.vo.ArticleVO">
 		SELECT a.*, u.nick FROM `board_article` as a 
 		JOIN `board_user` as u 
 		ON a.`uid` = u.`uid`  
-		WHERE `parent` = 0
+		WHERE `parent` = 0 AND `cate`=#{cate}
 		ORDER BY `no` DESC
-		LIMIT #{start}, 10;
+		LIMIT #{offset}, 10;
 	</select>
 	<select id="select" parameterType="int" resultMap="selectResultMap">
 		SELECT * FROM `board_article` as a 
@@ -38,10 +38,11 @@
 		</association>
 	</resultMap>
 	<select id="countAll" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM `board_article`
+		SELECT COUNT(*) FROM `board_article` WHERE cate=#{cate}
 	</select>
 	<insert id="insert" parameterType="kr.co.farmstory.vo.ArticleVO" useGeneratedKeys="true" keyProperty="no">
-		INSERT INTO `board_article` SET 
+		INSERT INTO `board_article` SET
+			`cate` = #{cate},
 			`title` = #{title},
 			`content` = #{content},
 			<if test="fname.isEmpty() == true">

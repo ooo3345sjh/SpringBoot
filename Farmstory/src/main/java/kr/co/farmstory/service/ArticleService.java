@@ -8,6 +8,7 @@ import kr.co.farmstory.dao.ArticleDAO;
 import kr.co.farmstory.utils.PageHandler;
 import kr.co.farmstory.vo.ArticleVO;
 import kr.co.farmstory.vo.FileVO;
+import kr.co.farmstory.vo.SearchCondition;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -26,17 +27,18 @@ public class ArticleService {
 	private ArticleDAO dao;
 	private FileService fileService;
 
-	public void getArticles(Model model, Integer page){
+	public void getArticles(Model m, SearchCondition sc){
 		log.info("ArticleService getArticles...");
 
-		if(page == null) page = 1;
-		PageHandler pageHandler = new PageHandler(dao.countAll(), page);  		// 페이징 처리
-		List<ArticleVO> articles =  dao.selectAll(pageHandler.getLimitStart()); // 게시물 조회
+		int totalCnt = dao.countAll(sc.getCate());
+
+		PageHandler pageHandler = new PageHandler(totalCnt, sc);  		// 페이징 처리
+		List<ArticleVO> articles =  dao.selectAll(sc); // 게시물 조회
 		
 		log.info(articles.toString());
-		
-		model.addAttribute("pageHandler", pageHandler);
-		model.addAttribute("articles", articles);
+
+		m.addAttribute("ph", pageHandler);
+		m.addAttribute("articles", articles);
 	};
 	
 	public ArticleVO getArticle(int no) {
@@ -80,4 +82,8 @@ public class ArticleService {
 		log.info("ArticleService modify...");
 		return dao.update(vo);
 	};
+
+	public int countAll(String cate) {
+		return dao.countAll(cate);
+	}
 }

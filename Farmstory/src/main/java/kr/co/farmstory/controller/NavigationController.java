@@ -1,11 +1,15 @@
 package kr.co.farmstory.controller;
 
 import kr.co.farmstory.service.ArticleService;
+import kr.co.farmstory.service.FileService;
 import kr.co.farmstory.vo.ArticleVO;
+import kr.co.farmstory.vo.SearchCondition;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +17,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
@@ -23,79 +29,114 @@ import java.util.Map;
 public class NavigationController {
 
     private ArticleService articleService;
+    private FileService fileService;
     private Environment environment;
 
     @GetMapping("")
-    public String navigation(Model m, String group, String cate, Integer page){
+    public String navigation(Model m, SearchCondition sc){
         log.info("NavigationCotroller navigation...");
 
         // 게시물 조회
-        if(!group.equals("introduction")) articleService.getArticles(m, page);
+        if(!sc.getGroup().equals("introduction")) articleService.getArticles(m, sc);
 
         // 프로퍼티 파일 조회
-        addGroupAndCateName(m, group);
+        addGroupAndCateName(m, sc.getGroup());
 
-        return group.equals("introduction") ? group + "/" + cate : "board/list";
+        return sc.getGroup().equals("introduction") ? sc.getGroup() + "/" + sc.getCate() : "board/list";
     }
 
-
     @GetMapping("/view")
-    public String view(Model m, String group, Integer no){
+    public String view(Model m, SearchCondition sc){
         log.info("NavigationCotroller view...");
-
-        // 프로퍼티 파일 조회
-        addGroupAndCateName(m, group);
+        log.info(sc.toString());
         
         // 번호에 해당하는 게시글 조회
-        m.addAttribute("article", articleService.getArticle(no));
+        ArticleVO vo = articleService.getArticle(sc.getNo());
+
+        // 모델 추가
+        m.addAttribute("article", vo);
+        m.addAttribute("sc", sc);
+
+        // 프로퍼티 파일 조회
+        addGroupAndCateName(m, sc.getGroup());
 
         return "board/view" ;
     }
 
     @GetMapping("/write")
-    public String write(Model m, String group){
+    public String write(Model m, SearchCondition sc){
         log.info("GET wirte...");
 
         // 프로퍼티 파일 조회
-        addGroupAndCateName(m, group);
+        addGroupAndCateName(m, sc.getGroup());
 
         return "board/write" ;
     }
+
     @PostMapping("/write")
-    public String write(ArticleVO vo, String group, String cate){
+    public String write(ArticleVO vo, SearchCondition sc){
         log.info("POST wirte...");
 
+        // 게시글 작성
         int result = articleService.write(vo);
-        return "redirect:/gnb" + createQueryString(group, cate, 1, null);
+        
+        return "redirect:/gnb" + sc.getQueryString();
     }
 
     @PostMapping("/delete")
     @ResponseBody
-    public Map<String, Object> delete(@RequestBody Map<String, Object> map){
+    public Map<String, String> delete(@RequestBody SearchCondition sc){
+        log.info("POST delete...");
 
-        log.info(map.toString());
-        int result = articleService.delete(Integer.parseInt((String)map.get("no")));
-        map.put("result", result);
+        // 게시글 삭제
+        Integer result = articleService.delete(sc.getNo());
+        
+        // 게시글 개수 조회
+        Integer count = articleService.countAll(sc.getCate());
+
+        // 전체 페이지수
+        int totalPage = (int)Math.ceil(count/sc.getPageSize());
+
+        // 전체 페이지수가 현재 페이지수 보다 크면 전체 페이지수로 값 저장
+        if(sc.getPage() > totalPage) sc.setPage(totalPage);
+
+        // 결과 저장
+        Map<String, String> map = new HashMap<>();
+        map.put("result", result.toString());
+        map.put("count", count.toString());
+        map.put("queryString", sc.getQueryString());
 
         return map;
     }
 
     @GetMapping("/modify")
-    public String modify(Model m, String group, Integer no){
+    public String modify(Model m, SearchCondition sc){
         log.info("GET modify...");
 
         // 프로퍼티 파일 조회
-        addGroupAndCateName(m, group);
+        addGroupAndCateName(m, sc.getGroup());
 
-        m.addAttribute(articleService.getArticle(no));
+        // 게시글 가져와서 모델에 추가
+        m.addAttribute(articleService.getArticle(sc.getNo()));
 
         return "board/modify" ;
     }
+
     @PostMapping("/modify")
-    public String modify(ArticleVO vo, String group, String cate, Integer page){
+    public String modify(ArticleVO vo, SearchCondition sc){
         log.info("POST modify...");
+
+        // 게시글 수정
         articleService.modify(vo);
-        return "redirect:/gnb/view" + createQueryString(group, cate, page, vo.getNo());
+
+        return "redirect:/gnb/view" + sc.getQueryString();
+    }
+
+    @GetMapping("/download")
+    public ResponseEntity<Resource> download(int fno) throws IOException {
+        log.info("POST download...");
+
+        return fileService.fileDownload(fno);
     }
 
 
@@ -110,13 +151,4 @@ public class NavigationController {
         m.addAttribute("group_Ko", group_Ko);       // 그룹 이름 한글
     }
 
-    // 쿼리스트링 만드는 메서드
-    public String createQueryString(String group, String cate, Integer page, Integer no){
-        return UriComponentsBuilder.newInstance()
-                .queryParam("group", group)
-                .queryParam("cate", cate)
-                .queryParam("page", page)
-                .queryParam("no", no)
-                .build().toString();
-    }
 }

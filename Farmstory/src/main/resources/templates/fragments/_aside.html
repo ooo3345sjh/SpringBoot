@@ -23,7 +23,7 @@
                 <article>
                     <nav>
                         <th:block th:each="cateEn,i:${cateList_En}">
-                            <th:block th:if="${cateEn eq cate}">
+                            <th:block th:if="${#strings.equals(cateEn, param.cate)}">
 
                                 <img th:src="@{/images/sub_nav_tit_{cate}_tit.png(cate=${param.cate})}" th:alt="${cateList_Ko[i.index]}"/>
                                 <p>

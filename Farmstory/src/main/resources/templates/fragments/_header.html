@@ -40,11 +40,11 @@
             <img th:src="@{/images/head_txt_img.png}" alt="3만원 이상 무료배송"/>
 
             <ul class="gnb">
-                <li><a th:href="@{/gnb(group='introduction', cate='hello')}">팜스토리소개</a></li>
-                <li><a th:href="@{/gnb(group='market', cate='market')}"><img th:src="@{/images/head_menu_badge.png}" alt="30%"/>장보기</a></li>
-                <li><a th:href="@{/gnb(group='croptalk', cate='story')}">농작물이야기</a></li>
-                <li><a th:href="@{/gnb(group='event', cate='event')}">이벤트</a></li>
-                <li><a th:href="@{/gnb(group='community', cate='notice')}">커뮤니티</a></li>
+                <li><a th:href="@{/gnb(group='introduction', cate='hello', page=1)}">팜스토리소개</a></li>
+                <li><a th:href="@{/gnb(group='market', cate='market', page=1)}"><img th:src="@{/images/head_menu_badge.png}" alt="30%"/>장보기</a></li>
+                <li><a th:href="@{/gnb(group='croptalk', cate='story', page=1)}">농작물이야기</a></li>
+                <li><a th:href="@{/gnb(group='event', cate='event', page=1)}">이벤트</a></li>
+                <li><a th:href="@{/gnb(group='community', cate='notice', page=1)}">커뮤니티</a></li>
             </ul>
         </header>
 
