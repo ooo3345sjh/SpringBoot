@@ -3,7 +3,7 @@
  */
 
 // AJAX API
-function ajaxPost(url, jsonData) {
+function ajaxAPI(url, jsonData, method) {
 	return new Promise(function(resolve, rejext) {
 		const xhr = new XMLHttpRequest();
 
@@ -15,10 +15,15 @@ function ajaxPost(url, jsonData) {
 			}
 		}
 
-		xhr.open("POST", contextPath + url);
+		xhr.open(method, contextPath + url);
 		xhr.setRequestHeader("Content-Type", "application/json");
-		//	xhr.setRequestHeader("uid", "uid"); GET 방식 
 		xhr.responseType = "json";
-		xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
+
+		if(method == "get" || method == "GET")
+		    xhr.send();
+		else
+		    xhr.send(JSON.stringify(jsonData)); //post body json 방식 일때
+
+
 	});
 };

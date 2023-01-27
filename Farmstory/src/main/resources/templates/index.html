@@ -21,13 +21,13 @@
         </div>
 
         <div class="quick">
-            <a href="#"><img th:src="@{/images/main_banner_sub1_tit.png}" alt="오늘의 식단"></a>
-            <a href="#"><img th:src="@{/images/main_banner_sub2_tit.png}" alt="나도 요리사"></a>
+            <a th:href="@{/gnb(group='community', cate='menu', page='1')}"><img th:src="@{/images/main_banner_sub1_tit.png}" alt="오늘의 식단"></a>
+            <a th:href="@{/gnb(group='community', cate='chef', page='1')}"><img th:src="@{/images/main_banner_sub2_tit.png}" alt="나도 요리사"></a>
         </div>
 
         <div class="latest">
             <div>
-                <a th:href="@{#}"><img th:src="@{/images/main_latest1_tit.png}" alt="텃밭 가꾸기"/></a>
+                <a th:href="@{/gnb(group='croptalk', cate='grow', page='1')}"><img th:src="@{/images/main_latest1_tit.png}" alt="텃밭 가꾸기"/></a>
                 <img th:src="@{/images/main_latest1_img.jpg}" alt="이미지"/>
                 <table border="0">
                     <tr>
@@ -58,7 +58,7 @@
                 </table>
             </div>
             <div>
-                <a th:href="@{#}"><img th:src="@{/images/main_latest2_tit.png}" alt="귀농학교"/></a>
+                <a th:href="@{/gnb(group='croptalk', cate='school', page='1')}"><img th:src="@{/images/main_latest2_tit.png}" alt="귀농학교"/></a>
                 <img th:src="@{/images/main_latest2_img.jpg}" alt="이미지"/>
                 <table border="0">
                     <tr>
@@ -89,7 +89,7 @@
                 </table>
             </div>
             <div>
-                <a th:href="@{#}"><img th:src="@{/images/main_latest3_tit.png}" alt="농작물 이야기"/></a>
+                <a th:href="@{/gnb(group='croptalk', cate='story', page='1')}"><img th:src="@{/images/main_latest3_tit.png}" alt="농작물 이야기"/></a>
                 <img th:src="@{/images/main_latest3_img.jpg}" alt="이미지"/>
                 <table border="0">
                     <tr>
@@ -135,8 +135,8 @@
                     </p>
                 </div>
                 <div class="btns">
-                    <a th:href="@{#}"><img th:src="@{/images/main_sub2_cs_bt1.png}" alt="1:1 고객문의"></a>
-                    <a th:href="@{#}"><img th:src="@{/images/main_sub2_cs_bt2.png}" alt="자주묻는질문"></a>
+                    <a th:href="@{/gnb(group='community', cate='qna', page='1')}"><img th:src="@{/images/main_sub2_cs_bt1.png}" alt="1:1 고객문의"></a>
+                    <a th:href="@{/gnb(group='community', cate='feq', page='1')}"><img th:src="@{/images/main_sub2_cs_bt2.png}" alt="자주묻는질문"></a>
                     <a th:href="@{#}"><img th:src="@{/images/main_sub2_cs_bt3.png}" alt="배송조회"></a>
                 </div>
             </div>
@@ -182,5 +182,19 @@
             </div>
         </div>
     </main>
+</th:block>
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+        $(function(){
+            $('.slider > ul').bxSlider({
+                slideWidth: 980,
+                pager: false,
+                controls: false,
+                auto: true
+            });
+
+            $('#tabs').tabs();
+        });
+    </script>
 </th:block>
 </html>

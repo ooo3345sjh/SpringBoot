@@ -5,27 +5,29 @@
 <th:block layout:fragment="main">
     <main id="user" class="register">
 
-        <form th:action="@{/user/register}" method="post">
+        <form name="form" th:action="@{/user/register}" method="post" th:object="${userVO}">
             <table border="1">
                 <caption>사이트 이용정보 입력</caption>
                 <tr>
                     <th>아이디</th>
                     <td>
-                        <input type="text" name="uid" placeholder="아이디 입력"/>
-                        <span class="result resultUid"></span>
+                        <input type="text" name="uid" placeholder="아이디 입력" th:value="*{uid}"/>
+                        <span th:if="${not #fields.hasErrors('uid')}" class="result resultUid"></span>
+                        <span class="result resultUid" th:errors="*{uid}"></span>
                     </td>
                 </tr>
                 <tr>
                     <th>비밀번호</th>
                     <td>
-                        <input type="password" name="pass" placeholder="비밀번호 입력"/>
-                        <span class="result resultPass"></span>
+                        <input type="password" name="pass" placeholder="비밀번호 입력" th:value="*{pass}"/>
+                        <span th:if="${not #fields.hasErrors('pass')}" class="result resultPass"></span>
+                        <span class="result resultPass" th:errors="*{pass}"></span>
                     </td>
                 </tr>
                 <tr>
                     <th>비밀번호 확인</th>
                     <td>
-                        <input type="password" name="reconfirmPass" placeholder="비밀번호 입력 확인"/>
+                        <input type="password" name="reconfirmPass" placeholder="비밀번호 입력 확인" th:value="*{pass}"/>
                         <span class="result resultConfirmPass"></span>
                     </td>
                 </tr>
@@ -36,44 +38,54 @@
                 <tr>
                     <th>이름</th>
                     <td>
-                        <input type="text" name="name" placeholder="이름 입력"/>
-                        <span class="result resultName"></span>
+                        <input type="text" name="name" placeholder="이름 입력" th:value="*{name}"/>
+                        <span th:if="${not #fields.hasErrors('name')}" class="result resultName"></span>
+                        <span class="result resultName" th:errors="*{name}"></span>
                     </td>
                 </tr>
                 <tr>
                     <th>별명</th>
                     <td>
                         <p>공백없이 한글, 영문, 숫자 입력</p>
-                        <input type="text" name="nick" placeholder="별명 입력"/>
-                        <span class="result resultNick"></span>
+                        <input type="text" name="nick" placeholder="별명 입력" th:value="*{nick}"/>
+                        <span th:if="${not #fields.hasErrors('nick')}" class="result resultNick" ></span>
+                        <span class="result resultNick" th:errors="*{nick}"></span>
                     </td>
                 </tr>
                 <tr>
                     <th>이메일</th>
                     <td>
-                        <input type="email" name="email" placeholder="이메일 입력"/>
+                        <input type="text" name="email" placeholder="이메일 입력" th:value="*{email}"/>
                         <button type="button" id="btnEmailAuth"><img th:src='@{/images/chk_auth.gif}' alt="인증번호 받기"/></button>
-                        <span class="result resultEmail"></span>
-                        <div class="auth">
-                            <input type="text" name="emailAuth" placeholder="인증번호 입력"/>
+                        <span th:if="${not #fields.hasErrors('email')}" class="result resultEmail"></span>
+                        <span class="result resultEmail" th:errors="*{email}"></span>
+
+                        <div class="emailAuthDivTag">
+                            <input type="text" name="emailAuthCode" placeholder="인증번호 6자리 입력" readonly/>
                             <button type="button" id="btnEmailConfirm"><img th:src='@{/images/chk_confirm.gif}' alt="확인"/></button>
                             <span class="result resultEmailCode"></span>
                         </div>
+
                     </td>
                 </tr>
                 <tr>
                     <th>휴대폰</th>
                     <td>
-                        <input type="text" name="hp" placeholder="- 포함 13자리 입력"/>
+                        <input type="tel" name="hp" placeholder="(-) 포함 12자리 입력" th:value="*{hp}"/>
+                        <span th:if="${not #fields.hasErrors('hp')}" class="result resultHp"></span>
+                        <span class="result resultHp" th:errors="*{hp}"></span>
                     </td>
                 </tr>
                 <tr>
                     <th>주소</th>
                     <td>
-                        <input type="text" name="zip" placeholder="우편번호 검색" readonly/>
-                        <button type="button"><img th:src="@{/images/chk_post.gif}" alt="우편번호 찾기"/></button>
-                        <input type="text" name="addr1" placeholder="기본주소 검색" readonly/>
-                        <input type="text" name="addr2" placeholder="상세주소 입력"/>
+                        <input id='zip' type="text" name="zip" placeholder="우편번호 검색" readonly/>
+                        <button type="button" id='btnSearchAddr'><img th:src="@{/images/chk_post.gif}" alt="우편번호 찾기"/></button>
+                        <span class="result" th:errors="*{zip}"></span>
+                        <input id='addr' type="text" name="addr" placeholder="기본주소 검색" readonly/>
+                        <span class="result" th:errors="*{addr}"></span>
+                        <input id='addrDetail' type="text" name="addrDetail" placeholder="상세주소 입력"/><br/>
+                        <span class="result" th:errors="*{addrDetail}"></span>
                     </td>
                 </tr>
             </table>
@@ -84,6 +96,10 @@
             </div>
         </form>
     </main>
+</th:block>
+<th:block layout:fragment="script">
+    <script th:src="@{/js/register.js}"></script>
+    <script th:src="@{/js/postcode.js}"></script>
 </th:block>
 </html>
 

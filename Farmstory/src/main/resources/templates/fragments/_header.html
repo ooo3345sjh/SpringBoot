@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <th:block th:fragment="header">
 <head>
     <meta charset="UTF-8">
@@ -11,20 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script th:src="@{/js/ajaxAPI.js}"></script>
-    <script th:src="@{/js/deleteArticle.js}"></script>
     <script>
         const contextPath = "[[@{/}]]";
-
-        $(function(){
-            $('.slider > ul').bxSlider({
-                slideWidth: 980,
-                pager: false,
-                controls: false,
-                auto: true
-            });
-
-            $('#tabs').tabs();
-        });
     </script>
 </head>
     <body>
@@ -33,7 +22,12 @@
             <a th:href="@{/index}" class="logo"><img th:src="@{/images/logo.png}" alt="로고"/></a>
             <p>
                 <a th:href="@{/}">HOME |</a>
-                <a th:href="@{/user/login}">로그인 |</a>
+
+                <a th:href="@{/user/logout}" sec:authorize="isAuthenticated()" class="logout">
+                    <span class="nick">[[${#authentication.principal.nick}]]</span>님 반갑습니다.[로그아웃] |
+                </a>
+
+                <a th:href="@{/user/login}"  sec:authorize="!isAuthenticated()">로그인 |</a>
                 <a th:href="@{/user/terms}">회원가입 |</a>
                 <a href="#">고객센터</a>
             </p>

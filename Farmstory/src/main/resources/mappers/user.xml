@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.farmstory.dao.UserDAO">
+	<select id="selectTerms" resultType="kr.co.farmstory.vo.UserVO">
+		select * from `board_terms`;
+	</select>
+	
+	<select id="selectAll" parameterType="String" resultType="kr.co.farmstory.vo.UserVO">
+		select * from `board_user`;
+	</select>
+	
+	<select id="checkDuplicate" parameterType="kr.co.farmstory.vo.UserVO" resultType="kr.co.farmstory.vo.UserVO">
+		SELECT * FROM `board_user` WHERE
+		 	`uid` = #{uid} OR
+		 	`name` = #{name} OR
+		 	`nick` = #{nick} OR
+		 	`email` = #{email} OR
+		 	`hp` = #{hp} ;
+	</select>
+
+	<select id="countByEmail" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM `board_user` WHERE `email`= #{email}
+	</select>
+	
+	<insert id="insert" parameterType="kr.co.farmstory.vo.UserVO">
+		INSERT INTO `board_user` SET 
+			`uid` = #{uid},
+			`pass` = #{pass}, 
+			`name` = #{name},
+			`nick`= #{nick},
+			`email` = #{email},
+			`hp` = #{hp},
+			`zip` = #{zip},
+			`addr`= #{addr},
+			`addrDetail`= #{addrDetail},
+			`regip` = #{regip},
+			`rdate`= NOW();
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM `board_user` WHERE `uid` = #{uid}
+	</delete>
+	
+	<update id="modify" parameterType="kr.co.farmstory.vo.UserVO">
+		UPDATE `board_user` WHERE `uid` = #{uid}
+	</update>
+</mapper>

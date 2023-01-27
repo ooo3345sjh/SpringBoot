@@ -95,7 +95,7 @@ public class NavigationController {
         Integer count = articleService.countAll(sc.getCate());
 
         // 전체 페이지수
-        int totalPage = (int)Math.ceil(count/sc.getPageSize());
+        int totalPage = (int)Math.ceil(count/(double)sc.getPageSize());
 
         // 전체 페이지수가 현재 페이지수 보다 크면 전체 페이지수로 값 저장
         if(sc.getPage() > totalPage) sc.setPage(totalPage);

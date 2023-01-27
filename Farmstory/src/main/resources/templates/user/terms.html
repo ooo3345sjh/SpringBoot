@@ -8,7 +8,7 @@
             <caption>사이트 이용약관</caption>
             <tr>
                 <td>
-                    <textarea class="terms" readonly></textarea>
+                    <textarea class="terms" readonly>[[${terms.terms}]]</textarea>
                     <label><input type="checkbox" class="terms" id='checkTerms'>&nbsp;동의합니다.</label>
                 </td>
             </tr>
@@ -18,7 +18,7 @@
             <caption>개인정보 취급방침</caption>
             <tr>
                 <td>
-                    <textarea class="privacy" readonly></textarea>
+                    <textarea class="privacy" readonly>[[${terms.privacy}]]</textarea>
                     <label><input type="checkbox" class="privacy" id='checkPrivacy'>&nbsp;동의합니다.</label>
                 </td>
             </tr>
@@ -30,6 +30,29 @@
         </p>
     </main>
 </th:block>
+<th:block layout:fragment="script">
+    <script>
+		function nextBtn(){
+	    	let termsCheckBox = document.getElementById("checkTerms");
+	    	let privacyCheckBox = document.getElementById("checkPrivacy");
+
+	    	if(!termsCheckBox.checked){
+	    		alert('사이트 이용약관을 동의해주세요.');
+		    	return false;
+	    	}
+
+	    	if(!privacyCheckBox.checked){
+	    		alert('개인정보 취급방침을 동의해주세요.');
+		    	return false;
+	    	}
+
+	    	return true;
+		}
+    </script>
+</th:block>
 </html>
+
+
+
 
 

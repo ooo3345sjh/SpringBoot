@@ -31,6 +31,7 @@ public class SearchCondition {
 //                .queryParam("pageSize", pageSize)
                 .toUriString();
         System.out.println("uri = " + uri);
+        
         return UriComponentsBuilder.newInstance()
                 .queryParam("group", group)
                 .queryParam("cate", cate)
@@ -49,4 +50,7 @@ public class SearchCondition {
         return (page-1) * pageSize;
     }
 
+    public void setPage(Integer page) {
+        this.page = page == 0 ? 1:page;
+    }
 }

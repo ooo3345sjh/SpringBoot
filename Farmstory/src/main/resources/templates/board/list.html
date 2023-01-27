@@ -14,20 +14,29 @@
                 <th>날짜</th>
                 <th>조회</th>
             </tr>
-           <tr th:each="article,i:${articles}" th:object="${ph}">
-               <td>[[*{totalCnt-sc.offset} - ${i.index}]]</td>
-               <td>
-                   <a th:href="@{/gnb/view} + ${ph.sc.getQueryString(ph.sc.page, article.no)}"
-                      th:text="|${article.title} [${article.comment}]|"></a>
-               </td>
-               <td>[[${article.nick}]]</td>
-               <td>[[${#strings.substring(article.rdate, 2, 10)}]]</td>
-               <td>[[${article.hit}]]</td>
-           </tr>
 
+            <!-- 게시글이 있는 경우 -->
+            <th:block th:if="${#lists.size(articles) != 0}">
+               <tr th:each="article,i:${articles}" th:object="${ph}">
+                   <td>[[*{totalCnt-sc.offset} - ${i.index}]]</td>
+                   <td>
+                       <a th:href="@{/gnb/view} + ${ph.sc.getQueryString(ph.sc.page, article.no)}"
+                          th:text="|${article.title} [${article.comment}]|"></a>
+                   </td>
+                   <td>[[${article.nick}]]</td>
+                   <td>[[${#strings.substring(article.rdate, 2, 10)}]]</td>
+                   <td>[[${article.hit}]]</td>
+               </tr>
+            </th:block>
+
+            <!-- 게시글이 없는 경우 -->
+            <th:block th:if="${#lists.size(articles) == 0}">
+                <tr> <td colspan="5">게시글이 없습니다.</td> </tr>
+            </th:block>
        </table>
 
-       <div class="page" th:object="${ph}">
+        <!-- 게시글이 없는 경우 페이지 넘버 숨기기 -->
+       <div class="page" th:style="${#lists.size(articles) == 0 ? 'visibility:hidden;':''}" th:object="${ph}">
 
            <th:block th:if="*{showPrev}">
                <a th:href="@{/gnb(group=${param.group},cate=${param.cate}, page=*{beginPage}-1)}" class="prev">이전</a>

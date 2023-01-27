@@ -4,6 +4,9 @@
     padding: 0;
     font: normal 12px '돋움';
 }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #f7f7f7 inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { transition: background-color 5000s ease-in-out 0s; }
+input, textarea {outline: none;}
 ul, ol {list-style: none;}
 a {text-decoration: none; color: #111;}
 
@@ -633,12 +636,12 @@ main > .info > div > .account {
     background: #f7f7f7;
     text-indent: 6px;
 }
-#user.register table input[name=addr1] {
+#user.register table input[name=addr] {
     display: block;
     margin: 5px 0;
     width: 360px;
 }
-#user.register table input[name=addr2] {
+#user.register table input[name=addrDetail] {
     width: 360px;
 }
 #user.register table button {
@@ -663,8 +666,9 @@ main > .info > div > .account {
     background: #e9e9e9;
 }
 
-#user.register  .result { font-size: 11px;}
-#user.register  .auth { margin-top: 5px;}
+#user.register  .result { font-size: 11px; color: red;}
+#user.register  .emailAuthDivTag { margin-top: 5px;}
+#user.register .emailAuthDivTag > input { background-color: #d9cece; }
 
 /* 글목록 */
 #board.list {

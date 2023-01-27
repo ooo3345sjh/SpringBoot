@@ -6,6 +6,7 @@
     <main id="board" class="view">
 
         <table th:object = "${article}">
+            <input type="hidden" name="no" th:value="*{no}">
             <caption>글보기</caption>
             <tr>
                 <th>제목</th>
@@ -48,25 +49,42 @@
         <!-- 댓글쓰기 -->
         <section class="commentForm">
             <h3>댓글쓰기</h3>
-            <form action="#">
-                <textarea name="content" placeholder="댓글내용 입력"></textarea>
-                <div>
-                    <a href="#" class="btn btnCancel">취소</a>
-                    <input type="submit" class="btn btnComplete" value="작성완료"/>
-                </div>
-            </form>
-                    <button class="test">test</button>
+            <textarea name="comment" placeholder="댓글내용 입력"></textarea>
+            <div>
+                <a href="#" class="btn btnCancel">취소</a>
+                <input type="button" class="btn btnComplete" value="작성완료"/>
+            </div>
         </section>
     </main>
 </th:block>
 <th:block layout:fragment="script">
     <script type="text/javascript">
+        let showComment = function(){
+
+            ajaxAPI("comment", jsonData, "post").then((response) => {
+
+                if(response.result == 0)
+                    alert('댓글 등록에 실패했습니다.');
+
+            }).catch((errorMsg) => {
+                console.log(errorMsg)
+            });
+
+        }
+
         window.onload = function() {
             const btnRemove = document.querySelector('.btnRemove');
             const btnGoList = document.querySelector('.btnList');
+            const btnComplete = document.querySelector('.btnComplete');
 
+            const inputComment = document.querySelector('textarea[name=comment]');
+
+            // 게시물 삭제
             btnRemove.addEventListener("click", function(e){
                 e.preventDefault();
+
+                if(!confirm('정말 삭제 하시겠습니까?')) return;
+
                 const urlParams = new URL(location.href).searchParams;
                 const no = urlParams.get('no');
                 const group = urlParams.get('group');
@@ -74,7 +92,7 @@
                 const page = urlParams.get('page');
 
                 let jsonData = {"group":group, "cate":cate, "page":page, "no":no};
-                ajaxPost("gnb/delete", jsonData).then((response) => {
+                ajaxAPI("gnb/delete", jsonData, "post").then((response) => {
 
                     if(response.result =! 0)
                         location.href = contextPath + "gnb" + response.queryString;
@@ -86,6 +104,26 @@
                     console.log(errorMsg)
                 });
             });
+
+
+            btnComplete.addEventListener("click", function(e){
+
+                // 댓글 내용
+                let comment = inputComment.value;
+                let no = document.querySelector('input[name=no]').value;
+
+                let jsonData = {parent:no, comment:comment};
+                ajaxAPI("comment", jsonData, "post").then((response) => {
+
+                    if(response.result == 0)
+                        alert('댓글 등록에 실패했습니다.');
+
+                }).catch((errorMsg) => {
+                    console.log(errorMsg)
+                });
+            });
+
+
         };
     </script>
 </th:block>

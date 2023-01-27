@@ -75,7 +75,7 @@ window.onload = function() {
 		let jsonData = { "uid": uid };
 
 		// AJAX 전송
-		ajaxPost("user/checkUid", jsonData).then((response) => {
+		ajaxAPI("user/checkUid", jsonData, "post").then((response) => {
 
 			if (response == null)
 				alert('Request fail...');
@@ -175,7 +175,7 @@ window.onload = function() {
 
 		let jsonData = { "nick":nick }
 		 
-		ajaxPost("user/checkNick", jsonData).then((response) => {
+		ajaxAPI("user/checkNick", jsonData, "post").then((response) => {
 
 			if (response == null)
 				alert('Request fail...');
@@ -238,7 +238,7 @@ window.onload = function() {
 			"email": email
 		};
 
-		ajaxPost("user/checkEmail", jsonData).then((response) => {
+		ajaxAPI("user/checkEmail", jsonData, "post").then((response) => {
 			console.log(response);
 
 			if (response == null) {
@@ -344,7 +344,7 @@ window.onload = function() {
 
 		let jsonData = { "hp":hp }
 		 
-		ajaxPost("user/checkHp", jsonData).then((response) => {
+		ajaxAPI("user/checkHp", jsonData, "post").then((response) => {
 
 			if (response == null)
 				alert('Request fail...');

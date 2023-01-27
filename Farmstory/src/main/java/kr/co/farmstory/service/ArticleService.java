@@ -54,12 +54,16 @@ public class ArticleService {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		WebAuthenticationDetails details = (WebAuthenticationDetails)auth.getDetails();
 
-//		vo.setUid(auth.getName());		// uid 저장
-		vo.setUid("a101");		// uid 저장
+		vo.setUid(auth.getName());		// uid 저장
 		vo.setRegip(details.getRemoteAddress());	// regip 저장
 		
 		// 글 등록
 		int result = dao.insert(vo);
+		for(int i=0; i<225; i++){
+			vo.setTitle("event" + i);
+			vo.setContent("content" + i);
+			dao.insert(vo);
+		}
 		MultipartFile file = vo.getFname();
 		
 		// 파일 업로드
