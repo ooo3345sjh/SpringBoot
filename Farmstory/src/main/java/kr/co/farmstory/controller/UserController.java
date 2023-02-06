@@ -46,7 +46,17 @@ public class UserController {
 	
 	// login
 	@GetMapping("/login")
-	public void login() {}
+	public void login(HttpServletRequest req) {
+		log.info("login Get...");
+		// 이전 페이지로 되돌아가기 위한 Referer 헤더값을 세션의 prevPage attribute로 저장
+		String url = req.getHeader("Referer");
+		if(url != null && !url.contains("/login")){
+			req.getSession().setAttribute("prevPage", url);
+		}
+	}
+
+	@GetMapping("/logout")
+	public void logout(){}
 	
 	// register
 	@GetMapping("/register")

@@ -14,6 +14,8 @@ public class SearchCondition {
     private String group;
     private String cate;
     private Integer no = 0;
+    private String searchField;
+    private String searchWord;
 
 
     public String getQueryString(Integer page){
@@ -23,22 +25,21 @@ public class SearchCondition {
 
     public String getQueryString(Integer page, Integer no){
         // ?page=1&pageSize=10&option="T"&keyword="title"
-        String uri= UriComponentsBuilder.newInstance()
-                .queryParam("group", group)
-                .queryParam("cate", cate)
-                .queryParam("no", no)
-                .queryParam("page", page)
-//                .queryParam("pageSize", pageSize)
-                .toUriString();
-        System.out.println("uri = " + uri);
-        
-        return UriComponentsBuilder.newInstance()
-                .queryParam("group", group)
-                .queryParam("cate", cate)
-                .queryParam("no", no)
-                .queryParam("page", page)
-//                .queryParam("pageSize", pageSize)
-                .toUriString();
+        UriComponentsBuilder builder = UriComponentsBuilder.newInstance()
+                                        .queryParam("group", group)
+                                        .queryParam("cate", cate)
+                                        .queryParam("page", page);
+
+
+        if (no != null && no != 0)
+              builder.queryParam("no", no);
+
+        if(searchField != null && !searchWord.isBlank()){
+            builder.queryParam("searchField", searchField)
+                   .queryParam("searchWord", searchWord);
+        }
+
+        return builder.toUriString();
     }
 
     public String getQueryString(){

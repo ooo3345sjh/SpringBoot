@@ -13,8 +13,8 @@ public interface CommentDAO {
 
     int insert(CommentVO vo) throws Exception;
     int update(CommentVO vo) throws Exception;
-    int delete(@Param("no") Integer no, @Param("uid") String uid) throws Exception;
-    List<CommentVO> selectAll() throws Exception;
+    int delete(CommentVO vo) throws Exception;
+    List<CommentVO> selectAll(Integer parent) throws Exception;
     CommentVO select() throws Exception;
     int countAll(Integer parent) throws Exception;
 

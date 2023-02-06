@@ -7,10 +7,29 @@
 		SELECT a.*, u.nick FROM `board_article` as a 
 		JOIN `board_user` as u 
 		ON a.`uid` = u.`uid`  
-		WHERE `parent` = 0 AND `cate`=#{cate}
+		WHERE `cate`=#{cate}
+		<include refid="searchCondition"/>
 		ORDER BY `no` DESC
 		LIMIT #{offset}, 10;
 	</select>
+
+	<!-- 검색 조건 -->
+	<sql id="searchCondition">
+		<if test="searchField != null">
+			<choose>
+				<when test='searchField == "T"'>
+					AND `title` LIKE CONCAT('%', #{searchWord}, '%')
+				</when>
+				<when test='searchField == "C"'>
+					AND `content` LIKE CONCAT('%', #{searchWord}, '%')
+				</when>
+				<when test='searchField == "W"'>
+					AND `nick` LIKE CONCAT('%', #{searchWord}, '%')
+				</when>
+			</choose>
+		</if>
+	</sql>
+
 	<select id="select" parameterType="int" resultMap="selectResultMap">
 		SELECT * FROM `board_article` as a 
 		LEFT JOIN `board_file` as f
@@ -37,8 +56,12 @@
 			<result column="download" property="download"/>
 		</association>
 	</resultMap>
+
 	<select id="countAll" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM `board_article` WHERE cate=#{cate}
+		SELECT COUNT(*) FROM `board_article` a
+		JOIN `board_user`u ON a.`uid` = u.`uid`
+		WHERE cate=#{cate}
+		<include refid="searchCondition"/>
 	</select>
 	<insert id="insert" parameterType="kr.co.farmstory.vo.ArticleVO" useGeneratedKeys="true" keyProperty="no">
 		INSERT INTO `board_article` SET
@@ -57,13 +80,49 @@
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.Integer">
-		DELETE a.*, f.* FROM `board_article` a 
+		DELETE a.*, f.*, c.* FROM `board_article` a
 		LEFT JOIN `board_file` f
 		ON a.`no` = f.`parent`
+		LEFT JOIN `board_comment` c
+		ON a.`no` = c.`parent`
 		WHERE a.`no` = #{no} OR a.`parent` = #{no}
 	</delete>
 	
 	<update id="update" parameterType="kr.co.farmstory.vo.ArticleVO">
 		UPDATE `board_article` SET `title`= #{title}, `content`=#{content} WHERE `no` = #{no}
 	</update>
+
+	<update id="updateCommentCnt">
+		UPDATE `board_article` SET `comment` = `comment` + #{count} WHERE `no` = #{no}
+	</update>
+
+	<update id="updateHit" parameterType="int">
+		UPDATE `board_article` SET `hit` = `hit` + 1 WHERE `no` = #{no}
+	</update>
+
+	<select id="selectCate" resultType="kr.co.farmstory.vo.ArticleVO">
+		<![CDATA[
+			SELECT * FROM
+			(SELECT *, ROW_NUMBER() OVER(PARTITION BY `cate` ORDER BY `no` DESC) a FROM `board_article`) rankrow
+			WHERE	rankrow.a <= 5
+			AND `cate` IN ('grow', 'school', 'story', 'notice', 'feq', 'qna')
+		]]>
+	</select>
+
+	<select id="selectCate2" resultType="kr.co.farmstory.vo.ArticleVO">
+		(SELECT `no`, `cate`, `title`, `rdate` FROM `board_article` WHERE `cate` = 'grow' ORDER BY `no` DESC LIMIT 5)
+		UNION
+		(SELECT `no`, `cate`, `title`, `rdate` FROM `board_article` WHERE `cate` = 'school' ORDER BY `no` DESC LIMIT 5)
+		UNION
+		(SELECT `no`, `cate`, `title`, `rdate` FROM `board_article` WHERE `cate` = 'story' ORDER BY `no` DESC LIMIT 5)
+		UNION
+		(SELECT `no`, `cate`, `title`, `rdate` FROM `board_article` WHERE `cate` = 'notice' ORDER BY `no` DESC LIMIT 5)
+		UNION
+		(SELECT `no`, `cate`, `title`, `rdate` FROM `board_article` WHERE `cate` = 'qna' ORDER BY `no` DESC LIMIT 3)
+		UNION
+		(SELECT `no`, `cate`, `title`, `rdate` FROM `board_article` WHERE `cate` = 'faq' ORDER BY `no` DESC LIMIT 3)
+	</select>
+
+
+
 </mapper>

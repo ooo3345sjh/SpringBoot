@@ -5,18 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class CommentVO {
 
-    private Integer no;
+    private Integer cno;
+    private Integer pcno;
     private Integer parent;
     private String comment;
     private String uid;
     private String nick;
     private String regip;
-    private String up_rdate;
-    private String rdate;
+    private Date up_rdate;
+    private Date rdate;
 }

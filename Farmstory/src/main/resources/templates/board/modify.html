@@ -5,12 +5,12 @@
 <th:block layout:fragment="main">
     <main id="board" class="modify">
 
-        <form th:action="@{/gnb/modify(group=${param.group}, cate=${param.cate}, page=${param.page}, no=${param.no})}" th:object='${articleVO}' method="post" >
+        <form th:action="@{/gnb/modify} + ${sc.getQueryString()}" th:object='${articleVO}' method="post" >
             <table border="0">
                 <caption>글수정</caption>
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" placeholder="제목을 입력하세요." th:value='*{title}'/></td>
+                    <td><input type="text" name="title" placeholder="제목을 입력하세요." th:value='*{title}' maxlength="50"/></td>
                 </tr>
                 <tr>
                     <th>내용</th>
@@ -19,7 +19,7 @@
             </table>
 
             <div>
-                <a th:href="@{/gnb/view(group=${param.group}, cate=${param.cate}, page=${param.page}, no=${param.no})}" class="btn btnCancel">취소</a>
+                <a th:href="@{/gnb/view} + ${sc.getQueryString()}" class="btn btnCancel">취소</a>
                 <input type="submit" value="수정완료" class="btn btnComplete"/>
             </div>
         </form>

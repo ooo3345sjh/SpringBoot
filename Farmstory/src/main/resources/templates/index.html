@@ -30,30 +30,18 @@
                 <a th:href="@{/gnb(group='croptalk', cate='grow', page='1')}"><img th:src="@{/images/main_latest1_tit.png}" alt="텃밭 가꾸기"/></a>
                 <img th:src="@{/images/main_latest1_img.jpg}" alt="이미지"/>
                 <table border="0">
-                    <tr>
+                    <th:block th:if="${map.get('grow') != null}" >
+                        <tr th:each="grow : ${map.grow}">
+                            <td>></td>
+                            <td>
+                                <a th:href="@{/gnb/view(group='croptalk', cate='grow', no=${grow.no} ,page=1)}">[[${grow.title}]]</a>
+                            </td>
+                            <td>[[${#dates.format(grow.rdate, 'yy-MM-dd')}]]</td>
+                        </tr>
+                    </th:block>
+                    <tr th:if="${map.get('grow') == null}">
                         <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
+                        <td colspan="2"><a>등록된 게시물이 없습니다.</a></td>
                     </tr>
                 </table>
             </div>
@@ -61,30 +49,16 @@
                 <a th:href="@{/gnb(group='croptalk', cate='school', page='1')}"><img th:src="@{/images/main_latest2_tit.png}" alt="귀농학교"/></a>
                 <img th:src="@{/images/main_latest2_img.jpg}" alt="이미지"/>
                 <table border="0">
-                    <tr>
+                    <tr th:each="school : ${map.school}" th:if="${#lists.size(school) != 0}">
                         <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
+                        <td>
+                            <a th:href="@{/gnb/view(group='croptalk', cate='school', no=${school.no} ,page=1)}">[[${school.title}]]</a>
+                        </td>
+                        <td>[[${#dates.format(school.rdate, 'yy-MM-dd')}]]</td>
                     </tr>
-                    <tr>
+                    <tr th:if="${#lists.size(map.school) == 0}">
                         <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
+                        <td colspan="2">등록된 게시물이 없습니다.</td>
                     </tr>
                 </table>
             </div>
@@ -92,30 +66,16 @@
                 <a th:href="@{/gnb(group='croptalk', cate='story', page='1')}"><img th:src="@{/images/main_latest3_tit.png}" alt="농작물 이야기"/></a>
                 <img th:src="@{/images/main_latest3_img.jpg}" alt="이미지"/>
                 <table border="0">
-                    <tr>
+                    <tr th:each="story : ${map.story}" th:if="${#lists.size(story) != 0}">
                         <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
+                        <td>
+                            <a th:href="@{/gnb/view(group='croptalk', cate='story', no=${story.no} ,page=1)}">[[${story.title}]]</a>
+                        </td>
+                        <td>[[${#dates.format(story.rdate, 'yy-MM-dd')}]]</td>
                     </tr>
-                    <tr>
+                    <tr th:if="${#lists.size(map.story) == 0}">
                         <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
-                    </tr>
-                    <tr>
-                        <td>></td>
-                        <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                        <td>20-12-22</td>
+                        <td colspan="2">등록된 게시물이 없습니다.</td>
                     </tr>
                 </table>
             </div>
@@ -159,23 +119,44 @@
                     </ul>
                     <div id="tabs-1">
                         <ul class="txt">
-                            <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                            <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                            <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                            <th:block th:if="${map.get('notice') != null}">
+                                <th:block th:each="notice, i : ${map.notice}">
+                                    <li th:if="${i.index < 3}">
+                                        <a th:href="@{/gnb/view(group='community', cate='notice', no=${notice.no} ,page=1)}">· [[${notice.title}]]</a>
+                                    </li>
+                                </th:block>
+                            </th:block>
+                            <th:block th:if="${map.get('notice') == null}">
+                                <li><a>· 등록된 게시물이 없습니다.</a></li>
+                            </th:block>
                         </ul>
                     </div>
                     <div id="tabs-2">
                         <ul class="txt">
-                            <li><a th:href="@{#}">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                            <li><a th:href="@{#}">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                            <li><a th:href="@{#}">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                            <th:block th:if="${map.get('feq') != null}">
+                                <th:block th:each="feq, i : ${map.feq}">
+                                    <li th:if="${i.index < 3}">
+                                        <a th:href="@{/gnb/view(group='community', cate='feq', no=${feq.no} ,page=1)}">· [[${feq.title}]]</a>
+                                    </li>
+                                </th:block>
+                            </th:block>
+                            <th:block th:if="${map.get('feq') == null}">
+                                <li><a>· 등록된 게시물이 없습니다.</a></li>
+                            </th:block>
                         </ul>
                     </div>
                     <div id="tabs-3">
                         <ul class="txt">
-                            <li><a th:href="@{#}">· 홈페이지를 오픈하였습니다.</a></li>
-                            <li><a th:href="@{#}">· 홈페이지를 오픈하였습니다.</a></li>
-                            <li><a th:href="@{#}">· 홈페이지를 오픈하였습니다.</a></li>
+                            <th:block th:if="${map.get('qna') != null}">
+                                <th:block th:each="qna, i : ${map.qna}">
+                                    <li th:if="${i.index < 3}">
+                                        <a th:href="@{/gnb/view(group='community', cate='qna', no=${qna.no} ,page=1)}">· [[${qna.title}]]</a>
+                                    </li>
+                                </th:block>
+                            </th:block>
+                            <th:block th:if="${map.get('qna') == null}">
+                                <li><a>· 등록된 게시물이 없습니다.</a></li>
+                            </th:block>
                         </ul>
                     </div>
                 </div>
@@ -194,6 +175,7 @@
             });
 
             $('#tabs').tabs();
+
         });
     </script>
 </th:block>

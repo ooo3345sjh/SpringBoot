@@ -15,8 +15,8 @@
             <tr th:if="*{file == 1}">
                 <th>파일</th>
                 <td>
-                    <a th:href="@{/gnb/download(fno=*{fileVO.fno})}">[[*{fileVO.oriName}]] </a>
-                    <span>[[*{fileVO.download}]]</span>회 다운로드
+                    <a id="fileDown" th:href="@{/gnb/download(fno=*{fileVO.fno})}">[[*{fileVO.oriName}]] </a>
+                    <span id="downCount">[[*{fileVO.download}]]</span>회 다운로드
                 </td>
             </tr>
             <tr>
@@ -26,106 +26,62 @@
         </table>
 
         <div>
-            <a th:href="@{/gnb/delete(group=${param.group}, cate=${param.cate}, page=${param.page})}" class="btn btnRemove">삭제</a>
-            <a th:href="@{/gnb/modify(group=${param.group}, cate=${param.cate}, page=${param.page}, no=${param.no})}" class="btn btnModify">수정</a>
-            <a th:href="@{/gnb(group=${param.group}, cate=${param.cate}, page=${param.page})}" class="btn btnList">목록</a>
+            <th:block th:if="${#authentication.name ne 'anonymousUser' and #authentication.name eq article.uid}">
+                <a th:href="@{/gnb} + ${sc.getQueryString()}" class="btn btnRemove">삭제</a>
+                <a th:href="@{/gnb/modify} + ${sc.getQueryString()}" class="btn btnModify">수정</a>
+            </th:block>
+            <a th:href="@{/gnb} + ${sc.getQueryString()}" class="btn btnList">목록</a>
         </div>
 
         <!-- 댓글목록 -->
         <section class="commentList">
             <h3>댓글목록</h3>
-            <article>
-                <span class="nick">길동이</span>
-                <span class="date">20-05-13</span>
-                <p class="content">댓글 샘플입니다.</p>
-                <div>
-                    <a href="#" class="remove">삭제</a>
-                    <a href="#" class="modify">수정</a>
-                </div>
-            </article>
+            <div>
+
+                <!-- 댓글 수정창 -->
+                <section id="cModifyForm" class="commentForm">
+                    <h3 style="font-weight: bold">댓글쓰기</h3>
+                    <textarea name="comment" placeholder="댓글내용 입력" rows="4" maxlength="300"></textarea>
+                    <div>
+                        <a href="#" class="btn btnCancel" id="btnModCancel">취소</a>
+                        <input type="button" class="btn btnComplete" id="btnModComplete" value="수정완료" style="display: none"/>
+                        <input type="button" class="btn btnComplete" id="btnReplyComplete" value="답변완료" style="display: none"/>
+                    </div>
+                </section>
+            </div>
+
             <p class="empty">등록된 댓글이 없습니다.</p>
         </section>
 
         <!-- 댓글쓰기 -->
         <section class="commentForm">
             <h3>댓글쓰기</h3>
-            <textarea name="comment" placeholder="댓글내용 입력"></textarea>
+            <textarea name="commentWrite" th:placeholder="${#authentication.name eq 'anonymousUser' ? '로그인 후 입력 가능합니다.':'댓글 내용 입력'}"
+                      rows="4" maxlength="300" th:readonly="${#authentication.name eq 'anonymousUser'}"></textarea>
             <div>
-                <a href="#" class="btn btnCancel">취소</a>
-                <input type="button" class="btn btnComplete" value="작성완료"/>
+                <a href="#" class="btn btnCancel" id="btnCancel">취소</a>
+                <input type="button" class="btn btnComplete" id="btnComplete" value="작성완료"/>
             </div>
         </section>
     </main>
 </th:block>
 <th:block layout:fragment="script">
     <script type="text/javascript">
-        let showComment = function(){
 
-            ajaxAPI("comment", jsonData, "post").then((response) => {
+        // 로그인 사용자 정보
+        const uid = "[[${#authentication.name}]]";
+        const nick = "[[${nick}]]";
 
-                if(response.result == 0)
-                    alert('댓글 등록에 실패했습니다.');
+        let fileDown =  document.getElementById('fileDown');
 
-            }).catch((errorMsg) => {
-                console.log(errorMsg)
+        if(fileDown != null){
+            fileDown.addEventListener("click", function (){
+                let downCount = document.getElementById('downCount');
+                downCount.innerHTML = parseInt(downCount.textContent) + 1;
             });
-
         }
-
-        window.onload = function() {
-            const btnRemove = document.querySelector('.btnRemove');
-            const btnGoList = document.querySelector('.btnList');
-            const btnComplete = document.querySelector('.btnComplete');
-
-            const inputComment = document.querySelector('textarea[name=comment]');
-
-            // 게시물 삭제
-            btnRemove.addEventListener("click", function(e){
-                e.preventDefault();
-
-                if(!confirm('정말 삭제 하시겠습니까?')) return;
-
-                const urlParams = new URL(location.href).searchParams;
-                const no = urlParams.get('no');
-                const group = urlParams.get('group');
-                const cate = urlParams.get('cate');
-                const page = urlParams.get('page');
-
-                let jsonData = {"group":group, "cate":cate, "page":page, "no":no};
-                ajaxAPI("gnb/delete", jsonData, "post").then((response) => {
-
-                    if(response.result =! 0)
-                        location.href = contextPath + "gnb" + response.queryString;
-
-                    else
-                        alert('삭제에 실패했습니다.');
-
-                }).catch((errorMsg) => {
-                    console.log(errorMsg)
-                });
-            });
-
-
-            btnComplete.addEventListener("click", function(e){
-
-                // 댓글 내용
-                let comment = inputComment.value;
-                let no = document.querySelector('input[name=no]').value;
-
-                let jsonData = {parent:no, comment:comment};
-                ajaxAPI("comment", jsonData, "post").then((response) => {
-
-                    if(response.result == 0)
-                        alert('댓글 등록에 실패했습니다.');
-
-                }).catch((errorMsg) => {
-                    console.log(errorMsg)
-                });
-            });
-
-
-        };
     </script>
+    <script th:src="@{/js/comment.js}"></script>
 </th:block>
 </html>
 

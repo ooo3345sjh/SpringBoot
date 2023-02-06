@@ -4,9 +4,12 @@
 <th:block th:fragment="header">
 <head>
     <meta charset="UTF-8">
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>팜스토리</title>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -14,23 +17,28 @@
     <script th:src="@{/js/ajaxAPI.js}"></script>
     <script>
         const contextPath = "[[@{/}]]";
+        const token = document.head.querySelector("meta[name='_csrf']").content;
+        const header = document.head.querySelector("meta[name='_csrf_header']").content;
+
     </script>
 </head>
     <body>
     <div id="wrapper">
         <header>
             <a th:href="@{/index}" class="logo"><img th:src="@{/images/logo.png}" alt="로고"/></a>
-            <p>
-                <a th:href="@{/}">HOME |</a>
-
-                <a th:href="@{/user/logout}" sec:authorize="isAuthenticated()" class="logout">
-                    <span class="nick">[[${#authentication.principal.nick}]]</span>님 반갑습니다.[로그아웃] |
-                </a>
-
-                <a th:href="@{/user/login}"  sec:authorize="!isAuthenticated()">로그인 |</a>
-                <a th:href="@{/user/terms}">회원가입 |</a>
-                <a href="#">고객센터</a>
-            </p>
+            <form name="logoutForm" th:action="@{/user/logout}" method="post">
+                <p>
+                    <a th:href="@{/}">HOME |</a>
+                    <th:block sec:authorize="isAuthenticated()">
+                        <span class="nick">[[${#authentication.principal.nick}]]님 반갑습니다.</span>
+                      <!--  <a href="#" class="logout">[로그아웃] |</a> -->
+                        <input type="submit" class="logout" value="[로그아웃] |">
+                    </th:block>
+                    <a th:href="@{/user/login}" sec:authorize="!isAuthenticated()">로그인 |</a>
+                    <a th:href="@{/user/terms}" sec:authorize="!isAuthenticated()">회원가입 |</a>
+                    <a href="#">고객센터</a>
+                </p>
+            </form>
             <img th:src="@{/images/head_txt_img.png}" alt="3만원 이상 무료배송"/>
 
             <ul class="gnb">

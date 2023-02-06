@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,10 +26,11 @@ public class ArticleVO {
 	private Integer hit;
 	private String uid;
 	private String regip;
-	private String rdate;
+	private Date rdate;
 	
 	// 추가 필드
 	private String nick;
 	private FileVO fileVO;
+	private List<ArticleVO> cateList;
 
 }

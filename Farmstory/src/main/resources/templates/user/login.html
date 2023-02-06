@@ -12,12 +12,18 @@
                 </tr>
                 <tr>
                     <td><img th:src="@{/images/login_ico_pw.png}" alt="비밀번호"/></td>
-                    <td><input type="password" name="pass" placeholder="비밀번호 입력"/></td>
+                    <td class="passTd">
+                        <i class="fa fa-eye fa-lg"></i>
+                        <input type="password" name="pass" placeholder="비밀번호 입력"/>
+                    </td>
                 </tr>
             </table>
             <input type="submit" class="btnLogin" value="로그인"/>
+            <label>
+                자동로그인<input type="checkbox" name="remember-me">
+            </label>
+            <span id="capsLock"><strong style="font-weight: bold">CapsLock</strong>이 켜져있습니다.</span>
         </form>
-
         <div class="info">
             <h3>회원 로그인 안내</h3>
             <p>
@@ -26,5 +32,37 @@
             <a th:href="@{/user/terms}">회원가입</a>
         </div>
     </main>
+</th:block>
+<th:block layout:fragment="script">
+    <script>
+        $(function (){
+
+            // 비밀번호 보이기, 숨기기 기능
+            $('.login > form > table td > i').on('click', function(){
+                $('input[name=pass]').toggleClass('active');
+                if($('input[name=pass]').hasClass('active')){
+                    // 비밀번호 보이기
+                    $(this).attr('class', "fa fa-eye-slash fa-lg")
+                        .next('input[name=pass]').attr('type', 'text');
+                } else {
+                    // 비밀번호 숨기기
+                    $(this).attr('class', "fa fa-eye fa-lg")
+                        .next('input[name=pass]').attr('type', 'password');
+                }
+            });
+        })
+
+        // CapsLock 체크 이벤트
+        let inputPass = document.querySelector("input[name=pass]");
+        inputPass.addEventListener('keydown', function (e){
+            if (e.getModifierState("CapsLock")) {
+                $('#capsLock').show();
+            } else {
+                $('#capsLock').hide();
+            }
+        })
+
+
+    </script>
 </th:block>
 </html>

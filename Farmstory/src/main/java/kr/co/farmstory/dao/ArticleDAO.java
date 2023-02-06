@@ -1,6 +1,7 @@
 package kr.co.farmstory.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.co.farmstory.vo.ArticleVO;
 import kr.co.farmstory.vo.SearchCondition;
@@ -11,10 +12,14 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface ArticleDAO {
-	public List<ArticleVO> selectAll(SearchCondition sc);
-	public ArticleVO select(int no);
-	public int insert(ArticleVO vo);
-	public int delete(int no);
-	public int update(ArticleVO vo);
-	public int countAll(String cate);
+	List<ArticleVO> selectAll(SearchCondition sc);
+	ArticleVO select(int no);
+	int insert(ArticleVO vo);
+	int delete(int no) throws  Exception;
+	int update(ArticleVO vo);
+	int countAll(SearchCondition sc);
+	int updateCommentCnt(@Param(value = "count") Integer count, @Param(value = "no") Integer no);
+	int updateHit(@Param(value = "no") Integer no) throws Exception;
+	List<ArticleVO> selectCate() throws Exception;
+	List<ArticleVO> selectCate2() throws Exception;
 }

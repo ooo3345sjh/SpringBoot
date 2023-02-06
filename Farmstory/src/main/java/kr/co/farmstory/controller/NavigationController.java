@@ -1,5 +1,6 @@
 package kr.co.farmstory.controller;
 
+import kr.co.farmstory.entity.UserEntity;
 import kr.co.farmstory.service.ArticleService;
 import kr.co.farmstory.service.FileService;
 import kr.co.farmstory.vo.ArticleVO;
@@ -10,14 +11,20 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +44,13 @@ public class NavigationController {
         log.info("NavigationCotroller navigation...");
 
         // 게시물 조회
-        if(!sc.getGroup().equals("introduction")) articleService.getArticles(m, sc);
+        if(!sc.getGroup().equals("introduction")) {
+            articleService.getArticles(m, sc);
+
+            // 오늘 날짜 가장 빠른 정시의 밀리세컨드
+            Instant startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
+            m.addAttribute("startOfToday", startOfToday.toEpochMilli());
+        }
 
         // 프로퍼티 파일 조회
         addGroupAndCateName(m, sc.getGroup());
@@ -46,7 +59,7 @@ public class NavigationController {
     }
 
     @GetMapping("/view")
-    public String view(Model m, SearchCondition sc){
+    public String view(Model m, SearchCondition sc, @AuthenticationPrincipal UserEntity user){
         log.info("NavigationCotroller view...");
         log.info(sc.toString());
         
@@ -56,6 +69,7 @@ public class NavigationController {
         // 모델 추가
         m.addAttribute("article", vo);
         m.addAttribute("sc", sc);
+        if(user != null) m.addAttribute("nick", user.getNick());
 
         // 프로퍼티 파일 조회
         addGroupAndCateName(m, sc.getGroup());
@@ -69,6 +83,9 @@ public class NavigationController {
 
         // 프로퍼티 파일 조회
         addGroupAndCateName(m, sc.getGroup());
+
+        // 검색 조건 객체 추가
+        m.addAttribute("sc", sc);
 
         return "board/write" ;
     }
@@ -85,26 +102,23 @@ public class NavigationController {
 
     @PostMapping("/delete")
     @ResponseBody
-    public Map<String, String> delete(@RequestBody SearchCondition sc){
+    public Map<String, String> delete(@RequestBody SearchCondition sc) {
         log.info("POST delete...");
 
-        // 게시글 삭제
-        Integer result = articleService.delete(sc.getNo());
-        
-        // 게시글 개수 조회
-        Integer count = articleService.countAll(sc.getCate());
+        Integer result = 0;
 
-        // 전체 페이지수
-        int totalPage = (int)Math.ceil(count/(double)sc.getPageSize());
+        try {
 
-        // 전체 페이지수가 현재 페이지수 보다 크면 전체 페이지수로 값 저장
-        if(sc.getPage() > totalPage) sc.setPage(totalPage);
+            // 게시글 삭제
+            result = articleService.delete(sc.getNo());
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         // 결과 저장
         Map<String, String> map = new HashMap<>();
         map.put("result", result.toString());
-        map.put("count", count.toString());
-        map.put("queryString", sc.getQueryString());
 
         return map;
     }
@@ -115,6 +129,9 @@ public class NavigationController {
 
         // 프로퍼티 파일 조회
         addGroupAndCateName(m, sc.getGroup());
+        
+        // 검색 조건 객체 추가
+        m.addAttribute("sc", sc);
 
         // 게시글 가져와서 모델에 추가
         m.addAttribute(articleService.getArticle(sc.getNo()));
@@ -137,6 +154,20 @@ public class NavigationController {
         log.info("POST download...");
 
         return fileService.fileDownload(fno);
+    }
+
+    @PostMapping("/hit/{no}")
+    @ResponseBody
+    public void updateHit(@PathVariable Integer no){
+
+        log.info("Navigation updateHit...");
+
+        try {
+            articleService.updateHit(no);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 

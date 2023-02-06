@@ -25,7 +25,7 @@ public class EmailService {
     	// 인증코드 생성(6자리수 랜덤 생성)
     	int code = ThreadLocalRandom.current().nextInt(100000, 1000000);
     	
-		String subject = "Sboard 인증코드 입니다.";
+		String subject = "FarmStory 인증코드 입니다.";
 		String content = "<h1>인증코드는 " + code + "입니다.</h1>";
         
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();

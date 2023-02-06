@@ -3,19 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.farmstory.dao.CommentDAO">
-	<select id="selectAll" resultType="kr.co.farmstory.vo.CommentVO">
-		SELECT * FROM `board_comment` WHERE parent = #{parent}
+	<select id="selectAll" parameterType="int" resultType="kr.co.farmstory.vo.CommentVO">
+		SELECT `cno`, IFNULL(`pcno`, `cno`) 'pcno', `parent`, `comment`, `uid`, `nick`, `up_rdate`, `rdate`
+		FROM `board_comment`
+		WHERE parent = #{parent}
+		ORDER BY `pcno` ASC, `cno` ASC
 	</select>
 	<select id="select" resultType="kr.co.farmstory.vo.CommentVO">
-		SELECT * FROM `board_comment` WHERE no=#{no} AND parent = #{parent}
+		SELECT * FROM `board_comment` WHERE cno=#{cno} AND parent = #{parent}
 	</select>
 
 	<select id="countAll" resultType="int">
 		SELECT COUNT(*) FROM `board_comment` WHERE parent=#{parent}
 	</select>
 
-	<insert id="insert" parameterType="kr.co.farmstory.vo.CommentVO" useGeneratedKeys="true" keyProperty="no">
+	<insert id="insert" parameterType="kr.co.farmstory.vo.CommentVO" useGeneratedKeys="true" keyProperty="cno">
 		INSERT INTO `board_comment` SET
+			`pcno`=#{pcno},
 			`parent`=#{parent},
 			`comment`=#{comment},
 			`uid`=#{uid},
@@ -24,15 +28,20 @@
 			`rdate`=NOW()
 	</insert>
 	
-	<delete id="delete" parameterType="java.lang.Integer">
+	<delete id="delete" parameterType="kr.co.farmstory.vo.CommentVO">
 		DELETE FROM `board_comment`
-		WhERE `no` = #{no} AND `uid`=#{uid}
+		<if test="cno != pcno">
+			WHERE `cno` = #{cno} AND `uid`=#{uid}
+		</if>
+		<if test="cno == pcno">
+			WHERE `cno` = #{cno} AND `uid`=#{uid} OR `pcno` = #{pcno}
+		</if>
 	</delete>
 	
 	<update id="update" parameterType="kr.co.farmstory.vo.CommentVO">
-		UPDATE `board_article` SET
+		UPDATE `board_comment` SET
 		`comment`=#{comment},
 		`up_rdate`=NOW()
-		WHERE `no`=#{no} AND `uid`=#{uid}
+		WHERE `cno`=#{cno} AND `uid`=#{uid}
 	</update>
 </mapper>

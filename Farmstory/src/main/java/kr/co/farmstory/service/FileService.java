@@ -37,29 +37,34 @@ public class FileService {
 		FileVO vo = dao.select(no); // 파일 조회
 		dao.update(vo);				// 파일 다운로드 수 +1
 		return vo;
-	};
+	}
 	
 	public List<FileVO> getFiles(){
 		return dao.selectAll();
-	};
+	}
 	
 	public int addFile(FileVO vo) {
 		return dao.insert(vo);
-	};
+	}
 	
-	public int remove(int no) {
-		return dao.delete(no);
-	};
-	
-	public int modify(FileVO vo) {
-		return dao.update(vo);
-	};
-	
+
+	public int modify(FileVO vo) {return dao.update(vo);}
+
 	@Value("${spring.servlet.multipart.location}")
 	private String uploadPath;
-	
+
+	public void fileRemove(FileVO vo) {
+		log.info("fileService fileRemove...");
+
+		// 시스템 경로
+		File file = new File(uploadPath + vo.getNewName());
+
+		if(file.exists())
+			file.delete();
+	}
+
 	public FileVO fileUpload(MultipartFile file) {
-		log.info("ArticleService fileUpload...");
+		log.info("fileService fileUpload...");
 		
 		if(file.isEmpty()) return null;
 		
