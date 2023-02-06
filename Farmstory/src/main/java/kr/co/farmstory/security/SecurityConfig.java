@@ -75,7 +75,7 @@ public class SecurityConfig {
 			)
 
 			// 자동 로그인 설정
-			.rememberMe(remem ->remem
+			.rememberMe(remem -> remem.tokenValiditySeconds(60000)
 //						 .tokenValiditySeconds(600)
 //						 .rememberMeServices(new TokenBasedRememberMeServices("autoUser", securityUserService){
 //							 @Override

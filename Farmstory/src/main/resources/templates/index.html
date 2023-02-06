@@ -49,16 +49,18 @@
                 <a th:href="@{/gnb(group='croptalk', cate='school', page='1')}"><img th:src="@{/images/main_latest2_tit.png}" alt="귀농학교"/></a>
                 <img th:src="@{/images/main_latest2_img.jpg}" alt="이미지"/>
                 <table border="0">
-                    <tr th:each="school : ${map.school}" th:if="${#lists.size(school) != 0}">
+                    <th:block th:if="${map.get('school') != null}" >
+                        <tr th:each="school : ${map.school}">
+                            <td>></td>
+                            <td>
+                                <a th:href="@{/gnb/view(group='croptalk', cate='school', no=${school.no} ,page=1)}">[[${school.title}]]</a>
+                            </td>
+                            <td>[[${#dates.format(school.rdate, 'yy-MM-dd')}]]</td>
+                        </tr>
+                    </th:block>
+                    <tr th:if="${map.get('school') == null}">
                         <td>></td>
-                        <td>
-                            <a th:href="@{/gnb/view(group='croptalk', cate='school', no=${school.no} ,page=1)}">[[${school.title}]]</a>
-                        </td>
-                        <td>[[${#dates.format(school.rdate, 'yy-MM-dd')}]]</td>
-                    </tr>
-                    <tr th:if="${#lists.size(map.school) == 0}">
-                        <td>></td>
-                        <td colspan="2">등록된 게시물이 없습니다.</td>
+                        <td colspan="2"><a>등록된 게시물이 없습니다.</a></td>
                     </tr>
                 </table>
             </div>
@@ -66,16 +68,18 @@
                 <a th:href="@{/gnb(group='croptalk', cate='story', page='1')}"><img th:src="@{/images/main_latest3_tit.png}" alt="농작물 이야기"/></a>
                 <img th:src="@{/images/main_latest3_img.jpg}" alt="이미지"/>
                 <table border="0">
-                    <tr th:each="story : ${map.story}" th:if="${#lists.size(story) != 0}">
+                    <th:block th:if="${map.get('story') != null}" >
+                        <tr th:each="story : ${map.story}">
+                            <td>></td>
+                            <td>
+                                <a th:href="@{/gnb/view(group='croptalk', cate='story', no=${story.no} ,page=1)}">[[${story.title}]]</a>
+                            </td>
+                            <td>[[${#dates.format(story.rdate, 'yy-MM-dd')}]]</td>
+                        </tr>
+                    </th:block>
+                    <tr th:if="${map.get('story') == null}">
                         <td>></td>
-                        <td>
-                            <a th:href="@{/gnb/view(group='croptalk', cate='story', no=${story.no} ,page=1)}">[[${story.title}]]</a>
-                        </td>
-                        <td>[[${#dates.format(story.rdate, 'yy-MM-dd')}]]</td>
-                    </tr>
-                    <tr th:if="${#lists.size(map.story) == 0}">
-                        <td>></td>
-                        <td colspan="2">등록된 게시물이 없습니다.</td>
+                        <td colspan="2"><a>등록된 게시물이 없습니다.</a></td>
                     </tr>
                 </table>
             </div>
