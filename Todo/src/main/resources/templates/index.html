@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <script th:src="@{/js/script.js}"></script>
+        <script th:src="@{/js/ajaxAPI.js}"></script>
+        <script>
+            const contextPath = "[[@{/}]]";
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h3>Todo</h3>
+            <section>
+                <div>
+                    <h3>Ready</h3>
+                    <article class="ready" data-status="1">
+                        <th:block th:if="${map.get('ready') != null}" >
+                            <th:block th:each="ready : ${map.ready}">
+                                <div class="item" th:data-no="${ready.no}">
+                                    <button class="del">X</button>
+                                    <em class="tit">#[[${ready.no}]]</em>
+                                    <p>
+                                        [[${ready.content}]]
+                                    </p>
+                                    <span class="date">[[${#strings.substring(ready.rdate, 0, 10)}]]</span>
+                                </div>
+                            </th:block>
+                        </th:block>
+                    </article>
+                </div>
+                <div>
+                    <h3>Doing</h3>
+                    <article class="doing" data-status="2">
+                        <th:block th:if="${map.get('doing') != null}" >
+                            <th:block th:each="doing : ${map.doing}">
+                                <div class="item" th:data-no="${doing.no}">
+                                    <button class="del">X</button>
+                                    <em class="tit">#[[${doing.no}]]</em>
+                                    <p>
+                                        [[${doing.content}]]
+                                    </p>
+                                    <span class="date">[[${#strings.substring(doing.rdate, 0, 10)}]]</span>
+                                </div>
+                            </th:block>
+                        </th:block>
+                    </article>
+                </div>
+                <div>
+                    <h3>Done</h3>
+                    <article class="done" data-status="3">
+                        <th:block th:if="${map.get('done') != null}" >
+                            <th:block th:each="done : ${map.done}">
+                                <div class="item" th:data-no="${done.no}">
+                                    <button class="del">X</button>
+                                    <em class="tit">#[[${done.no}]]</em>
+                                    <p>
+                                        [[${done.content}]]
+                                    </p>
+                                    <span class="date">[[${#strings.substring(done.rdate, 0, 10)}]]</span>
+                                </div>
+                            </th:block>
+                        </th:block>
+                    </article>
+                </div>
+            </section>
+            <div class="add">
+                <input type="text" name="todo"/>
+                <input type="button" id="btnAdd" value="추가"/>
+            </div>
+        </div>
+    </body>
+</html>

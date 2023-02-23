@@ -96,6 +96,13 @@ public class FileService {
 		FileVO vo = getFile(fno);
 		
 		Path path = Paths.get(uploadPath + vo.getNewName());
+
+		log.info("here1" + path.toString());
+		log.info("here2" + path.getFileName());
+		log.info("here3" + path.getFileSystem());
+		log.info("here4" + path.getRoot());
+
+
 		String contentType = Files.probeContentType(path);
 		
 		HttpHeaders headers = new HttpHeaders();

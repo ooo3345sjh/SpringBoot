@@ -3,6 +3,7 @@ package kr.co.farmstory.controller;
 import kr.co.farmstory.entity.UserEntity;
 import kr.co.farmstory.service.ArticleService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,7 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("/auth")
-    public String auth(){
-        return SecurityContextHolder.getContext().getAuthentication().toString();
+    public Authentication auth(){
+        return SecurityContextHolder.getContext().getAuthentication();
     }
 }

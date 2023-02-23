@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.todo.dao.ArticleDAO">
+	<select id="select" resultType="kr.co.todo.vo.ArticleVO">
+		SELECT * FROM `todo`
+		ORDER BY `order`;
+	</select>
+	<insert id="insert" parameterType="kr.co.todo.vo.ArticleVO">
+		INSERT INTO `todo` SET
+			`content`=#{content},
+			`status`='ready'
+	</insert>
+	<delete id="delete">
+		DELETE FROM `todo` WHERE `no`=#{no}
+	</delete>
+	<update id="update">
+		UPDATE `todo` SET `status`=#{status}, `wdate`=now() WHERE `no`=#{no}
+	</update>
+</mapper>

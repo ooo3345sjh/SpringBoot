@@ -44,7 +44,7 @@ public class SecurityConfig {
 		http
 			// 사이트 위변조 요청 방지
 //			.csrf().disable()
-			
+
 			// 인가(접근권한) 설정
 			.authorizeHttpRequests(req ->
 				req.mvcMatchers("/user/logout").permitAll()
