@@ -22,7 +22,7 @@ public class User1Service {
 	public int insertUser1(User1VO vo) throws Exception {
 		int result = 0;
 		result += dao.insertUser1(vo);
-		result += dao.insertUser1(vo);
+//		result += dao.insertUser1(vo);
 		return result;
 	};
 	

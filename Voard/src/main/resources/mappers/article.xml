@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.vboard.dao.ArticleDAO">
+	<select id="selectAll" resultType="kr.co.vboard.vo.ArticleVO">
+		SELECT * FROM `board_article`;
+	</select>
+	<select id="select" resultType="kr.co.vboard.vo.ArticleVO">
+		SELECT * FROM `board_article` WHERE `no`=#{no};
+	</select>
+	<insert id="insert" parameterType="kr.co.vboard.vo.ArticleVO">
+		INSERT INTO `board_article` SET 
+			`title`=#{title},
+			`content`=#{content},
+			`uid`=#{uid},
+			`regip`=#{regip},
+			`rdate`=NOW() 
+	</insert>
+	<update id="update"></update>
+	<delete id="delete"></delete>
+</mapper>

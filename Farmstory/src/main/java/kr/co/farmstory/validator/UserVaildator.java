@@ -56,7 +56,6 @@ public class UserVaildator implements Validator {
 	
 	// UserVo의 필드값을 돌며 유효성 검사
 	private void checkField(UserVO user) throws Exception {
-		
 		Field[] fields = user.getClass().getDeclaredFields();
 		int count = 1;
 		

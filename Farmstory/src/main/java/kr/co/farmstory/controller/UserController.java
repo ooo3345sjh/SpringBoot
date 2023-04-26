@@ -10,6 +10,7 @@ import kr.co.farmstory.service.TermsService;
 import kr.co.farmstory.service.UserService;
 import kr.co.farmstory.validator.UserVaildator;
 import kr.co.farmstory.vo.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 @AllArgsConstructor
 public class UserController {
-	
+
 	private UserService userService;
 	private TermsService termsService;
 	private EmailService emailService;

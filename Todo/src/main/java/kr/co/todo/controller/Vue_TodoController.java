@@ -5,7 +5,6 @@ import kr.co.todo.service.ArticleService;
 import kr.co.todo.vo.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,21 +15,24 @@ import java.util.Map;
 
 
 @Slf4j
-@CrossOrigin(value = "*", allowedHeaders = "*")
 @Controller
-public class MainController {
+@RequestMapping("/vue")
+@CrossOrigin(value = "*", allowedHeaders = "*")
+public class Vue_TodoController {
 
     @Autowired
     private ArticleService service;
 
-    @GetMapping(value = {"/", "/index"})
-    public String index(Model m){
-        m.addAttribute("map", service.select());
-        return "/index";
+    @ResponseBody
+    @GetMapping("")
+    public Map list(){
+        Map map = new HashMap();
+        map.put("todos", service.select());
+        return map;
     }
 
     @ResponseBody
-    @PostMapping("/")
+    @PostMapping("")
     public Map write(@RequestBody ArticleVO vo){
         log.info("MainController Post write...");
         log.info(vo.toString());
@@ -45,6 +47,7 @@ public class MainController {
 
         Map map = new HashMap();
         map.put("entity", entity);
+        map.put("todos", service.select());
         return map;
     }
 
@@ -52,6 +55,15 @@ public class MainController {
     @DeleteMapping("/{no}")
     public Map delete(@PathVariable int no){
         int result = service.delete(no);
+        Map map = new HashMap();
+        map.put("result", result);
+        return map;
+    }
+
+    @ResponseBody
+    @DeleteMapping("")
+    public Map deleteAll(){
+        int result = service.deleteAll();
         Map map = new HashMap();
         map.put("result", result);
         return map;

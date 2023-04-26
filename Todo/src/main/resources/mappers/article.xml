@@ -15,6 +15,9 @@
 	<delete id="delete">
 		DELETE FROM `todo` WHERE `no`=#{no}
 	</delete>
+	<delete id="deleteAll">
+		DELETE FROM `todo`
+	</delete>
 	<update id="update">
 		UPDATE `todo` SET `status`=#{status}, `wdate`=now() WHERE `no`=#{no}
 	</update>

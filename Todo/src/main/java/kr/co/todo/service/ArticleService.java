@@ -23,8 +23,8 @@ public class ArticleService {
     @Autowired
     private ArticleDAO dao;
 
-    public Map<String, List<ArticleVO>> select(){
-        return dao.select().stream().sorted(Comparator.comparing(ArticleVO::getOrder)).collect(Collectors.groupingBy(ArticleVO::getStatus));
+    public List<ArticleVO> select(){
+        return dao.select();
     };
 
     public ArticleEntity insert(ArticleEntity entity){
@@ -33,6 +33,9 @@ public class ArticleService {
 
     public int delete(int no){
         return dao.delete(no);
+    };
+    public int deleteAll(){
+        return dao.deleteAll();
     };
     public int update(int no, int status){
         return dao.update(no, convertStatus(status));

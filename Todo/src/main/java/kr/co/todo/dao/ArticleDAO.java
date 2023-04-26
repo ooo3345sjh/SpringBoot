@@ -13,5 +13,6 @@ public interface ArticleDAO {
     List<ArticleVO> select();
     int insert(ArticleVO vo);
     int delete(@Param(value = "no") int no);
+    int deleteAll();
     int update(@Param(value = "no") int no, @Param(value = "status") String status);
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.vboard.dao.UserDAO">
+	<select id="selectTerms" resultType="kr.co.vboard.vo.TermsVO">
+		SELECT * FROM `board_terms`;
+	</select>
+	<insert id="insert"></insert>
+	<update id="update"></update>
+	<delete id="delete"></delete>
+</mapper>
