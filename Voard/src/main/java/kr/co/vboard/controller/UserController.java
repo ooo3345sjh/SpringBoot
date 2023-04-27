@@ -44,6 +44,9 @@ public class UserController {
 	private UserRepo userRepo;
 	private PasswordEncoder passwordEncoder;
 	
+
+	
+	
 	@GetMapping("/user/terms")
 	public TermsVO terms(){
 		return userService.findTerms();

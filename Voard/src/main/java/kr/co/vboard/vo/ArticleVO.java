@@ -1,5 +1,6 @@
 package kr.co.vboard.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -27,4 +28,13 @@ public class ArticleVO {
 	private String regip;
 	private Date rdate;
 	private MultipartFile fname;
+	
+	private String nick;
+	
+	
+	public String getDate() {
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		
+		return sdf.format(rdate).substring(2, 10);
+	}
 }

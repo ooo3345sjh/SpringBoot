@@ -16,7 +16,8 @@ public interface ArticleDAO {
 
 	int insert(ArticleVO article);
 	ArticleVO select(String no);
-	List<ArticleVO> selectAll();
+	List<ArticleVO> selectAll(int limit);
 	int update(ArticleVO article);
 	int delete(String uid, String no);
+	int countAll();
 }
