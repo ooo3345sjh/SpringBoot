@@ -1,14 +1,14 @@
 version: "3.7"
 
 services:
-  lemo_db:
+  voard_db:
     image: mysql
-    container_name: lemo_db
+    container_name: voard_db
     restart: always
     cap_add:
       - SYS_NICE
     environment:
-      MYSQL_DATABASE: lemo
+      MYSQL_DATABASE: java2_board
       MYSQL_USER: user1
       MYSQL_PASSWORD: dsaewq321!
       MYSQL_ROOT_PASSWORD: dsaewq321!
@@ -23,10 +23,10 @@ services:
                "--collation-server=utf8mb4_unicode_ci",
                "--default_authentication_plugin=mysql_native_password" ]
     networks:
-      - springboot-mysql-net
-  lemo_app:
+      - voard-net
+  voard_app:
     restart: always
-    container_name: lemo_app
+    container_name: voard_app
     build:
       context: ./
       dockerfile: Dockerfile
@@ -35,10 +35,10 @@ services:
     ports:
       - 8787:80
     depends_on:
-      - lemo_db
+      - voard_db
     networks:
-      - springboot-mysql-net
+      - voard-net
 
 networks:
-  springboot-mysql-net:
+  voard-net:
     driver: bridge
