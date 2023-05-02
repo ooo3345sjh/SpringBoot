@@ -63,7 +63,7 @@ public class User1VO {
 }
 ```
 
-1. Repository 생성
+2. Repository 생성
 
 ```java
 package kr.co.ch07.repository;
@@ -152,7 +152,7 @@ public interface User1Repo extends JpaRepository<User1VO, String>{ // <"VO객체
 }
 ```
 
-1. Service 생성
+3. Service 생성
 
 ```java
 package kr.co.ch07.service;
@@ -195,7 +195,7 @@ public class User1Service {
 }
 ```
 
-1. Controller 생성
+4. Controller 생성
 
 ```java
 package kr.co.ch07.controller;
@@ -254,7 +254,7 @@ public class User1Controller {
 }
 ```
 
-1. 화면 출력
+6. 화면 출력
     - list.html
     
     ```java
