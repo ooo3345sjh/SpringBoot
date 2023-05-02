@@ -4,3 +4,4 @@
 ## Ch08. [8장 Spring Security](https://github.com/ooo3345sjh/SpringBoot/tree/main/Ch08)
 ## Ch09. [9장 Spring REST 웹서비스](https://github.com/ooo3345sjh/SpringBoot/tree/main/Ch09)
 ## Ch10. [10장 Spring 테스트와 로깅](https://github.com/ooo3345sjh/SpringBoot/tree/main/Ch10)
+## 종합프로젝트. [FarmStory](https://github.com/ooo3345sjh/SpringBoot/tree/main/Farmstory)
