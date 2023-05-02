@@ -19,4 +19,4 @@
 ![write](https://user-images.githubusercontent.com/111489860/235758440-14f2d3b0-ee14-4a4d-b540-893890baef66.png)
 
 ## 게시글 보기
-![view](https://user-images.githubusercontent.com/111489860/235759233-95d0e1da-500b-4f0a-9f89-bf7a1e42dc9e.png)
+![view](https://user-images.githubusercontent.com/111489860/235759426-3a1f0d67-8d7e-4689-a07d-e0183e45a8f4.png)
