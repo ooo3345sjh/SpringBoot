@@ -7,7 +7,7 @@
 - Spring5 버전 이후로 Spring MVC 는 Spring Boot로 대체되는 추세
 - Spring Boot 기본 빌드 도구는 Gradle
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1310d7c-4498-4ae7-994b-6be1ca5bb1e9/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235744243-9b6b1cf1-869f-4f43-8780-794a74683290.png)
 
 ## 2. 템플릿 엔진 개요
 
@@ -17,7 +17,7 @@
 - Spring Boot가 지원하는 템플릿 엔진은 Jsp, Thymeleaf, Freemarker, Mustache, Groovy Templates 등이 있다.
 - Spring Boot 에서 기본 템플릿 엔진으로 JSP 대신 Thymeleaf 사용을 권장
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/53335661-cddd-4e21-8a3a-55873dab154f/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235744286-dc18108c-992b-492f-823d-748ba4fa78ed.png)
 
 ## 3. Thymeleaf
 
@@ -25,7 +25,7 @@
 - HTML 태그에 Thymeleaf 속성(th:xxx)을 추가해 페이지에 동적으로 값을 추가하거나 처리 한다.
 - HTML 태그에 Thymeleaf 선언 속성(xmlns:th="http://www.thymeleaf.org")을 추가
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2dfe87f1-25d5-42e4-bf74-49c32af75fac/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235744325-cea12cac-d5f8-425c-9dd6-00009d637887.png)
 
 ## 4. Lombok
 
@@ -38,11 +38,11 @@
 - 환경 설정
     1. 프로젝트 생성 : new → new Spring Starter Project
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92012cbb-4340-400d-9b75-8a77ee15616c/Untitled.png)
+    ![Untitled](https://user-images.githubusercontent.com/111489860/235744364-5109bdaf-f401-4958-a438-00a1509ae907.png)
     
     1. next 를 누르고 아래와 같이 라이브러리 추가 → finish
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f1cb3ba1-2fae-4335-ab0f-fd85ad9c9770/Untitled.png)
+        ![Untitled](https://user-images.githubusercontent.com/111489860/235744400-935a41f3-13d1-4cc8-bd2c-0819c3533630.png)
         
     
     3. application.xml 설정
@@ -61,29 +61,28 @@
         
               - HTML, CSS 파일 등을 생성할 수 있다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e65997a5-9b38-4788-89d0-ffc5e7c6c70d/Untitled.png)
+        ![Untitled](https://user-images.githubusercontent.com/111489860/235744447-75e7e1b6-8d16-427e-ac7a-5bc4a8c20158.png)
         
     2. Thymeleaf Plygin For Eclipse 3.0.1 설치(적용 안됨)
         - <th:> 태그를 자동 완성시켜준다.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d2c9734-0b3c-4932-9861-9c7e3ccac060/Untitled.png)
+    ![Untitled](https://user-images.githubusercontent.com/111489860/235744500-a49fd0c4-c463-4e5e-a7c7-bf94125bfefc.png)
     
 2. Lombok 라이브러리 설치 (Setter, getter 등.. 에노테이션 제공)   [라이브러리 다운로드](https://projectlombok.org/download)
 - 다운로드를 한 뒤에 jar 파일을 sts가 저장된 폴더에 이동시킨다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/46277709-4134-4f8a-bfd5-62586200a062/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235744537-44ca74ab-4b04-4318-a14f-7b4e83f48ea3.png)
 
 - Git Bash를 열고 아래와 같이 명령어를 실행
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75c79fda-b89e-4d6a-9706-cdab3c8984f0/Untitled.png)
+    ![Untitled](https://user-images.githubusercontent.com/111489860/235744581-ce168532-b542-448d-88d6-f84955736df6.png)
     
 - 설치를 진행하고 하면 아래와 같이 파일이 생성된다.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/511a135b-f04f-40fe-b4be-4ce27551d5dc/Untitled.png)
+    ![Untitled](https://user-images.githubusercontent.com/111489860/235744645-3be09c72-9c38-4e93-99f5-55eec687596e.png)
     
 
 - Setter, Getter, 생성자 메서드를 자동으로 생성해준다. (@Data 선언으로 모두 생성할 수 있음)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f957556f-2678-44b6-955a-f3bcd944b8c9/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235744667-f355f36b-d304-4db5-b9be-51250fee6b15.png)
 
-[[SpringBoot] - MyBatis 사용하기](https://www.notion.so/SpringBoot-MyBatis-67d652ed75d14778ae2b2c628b26c3bc)
