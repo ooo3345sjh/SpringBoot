@@ -270,7 +270,7 @@ public class SecurityConfig2 {
 }
 ```
 
-## 4. UserDetailService
+### 5. UserDetailService
 
 ```java
 package kr.co.ch08.security;
@@ -345,7 +345,7 @@ public class SecurityUserService implements UserDetailsService {
 }
 ```
 
-### 5. UserDetail 커스텀
+### 6. UserDetail 커스텀
 
 ```java
 package kr.co.ch08.security;
@@ -431,7 +431,7 @@ public class MyUserDetails implements UserDetails {
 
 ```
 
-### 6. 사용자 정보 화면 출력
+### 7. 사용자 정보 화면 출력
 
 ```java
 <!DOCTYPE html>
