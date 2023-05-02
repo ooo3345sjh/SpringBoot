@@ -7,6 +7,8 @@
 ![login](https://user-images.githubusercontent.com/111489860/235755079-42ac3846-941f-4dda-b768-f0a79c44053e.png)
 
 ## 약관동의
+![terms](https://user-images.githubusercontent.com/111489860/235755328-9841c022-2506-4350-9863-6d14ab83eea1.png)
+
 ## 회원가입
 ## 게시글 목록
 ## 게시글 작성
