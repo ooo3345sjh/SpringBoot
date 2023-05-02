@@ -7,11 +7,11 @@
 - JPA는 특정 DBMS에 종속되지 않고, 객체지향적인 설계로 좀 더 직관적이고 비즈니스 로직에 집중
 - JPA는 복잡한 SQL 실행이 어렵다는것과 JPA를 애플리케이션 개발에 제대로 활용하기 위해서는 많은 경험과 학습을 요구
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1f49f3d3-7d35-42da-883c-ab3d0caef3a6/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235747314-e0fd267b-0c23-4e92-91bf-82698035e78b.png)
 
 ## 2. JPA 주요 컴포넌트
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/911ce5c9-1b3b-42b9-9e14-7f8dc1af89c7/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235747377-e4c46950-421c-4113-89b6-d8d6ba7145d8.png)
 
 ## 3. JPA Entity와 Entity Manager
 
@@ -20,7 +20,7 @@
 - Entity Manager는 영속성 컨텍스트(Persistence Context)에서 여러 Entity를 관리하는 객체
 - 영속성 컨텍스트는 Entity를 1차 Cache 에 저장하고 Entity Manager를 통해 접근제어
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/22cfe4b5-516f-4644-b74e-2338aa56c8fb/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235747423-6bb49b2e-5008-4f72-9a11-c808bc2f923e.png)
 
 ## 4. Spring JPA 실습
 
