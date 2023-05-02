@@ -14,7 +14,7 @@
 - Spring Security의 인증을 처리 방식의 기본은 HttpSession 방식
 - Spring Security는 서블릿 필터(Servlet Filter) 기반으로 동작하고, 다양한 기능들을 Filter로 제공
 
-[]()
+[Untitled](https://user-images.githubusercontent.com/111489860/235749396-3d2e5cc2-226b-4b48-a4b8-0c73b0958d62.JPG)
 
 ## 3. Spring Security 동작방식
 
@@ -22,7 +22,7 @@
 - UsernamePasswordAuthenticationFilter는 사용자가 입력한 정보를 이용해 인증을 처리
 - FilterSecurityInterceptor는 인증에 성공한 사용자가 해당 리소스에 접근할 권한이 있는지를 검증
 
-![Untitled](https://user-images.githubusercontent.com/111489860/235748731-5cdd4672-ce27-4b04-bc84-5136220c0a68.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235748695-b00eedeb-b186-4cf0-9746-8c41ae194de4.png)
 
 ## 4. Spring Security 실습
 
@@ -473,4 +473,4 @@ public class MyUserDetails implements UserDetails {
 </html>
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/15d599ac-cc59-4c42-b6f2-293bec872650/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235748731-5cdd4672-ce27-4b04-bc84-5136220c0a68.png)
