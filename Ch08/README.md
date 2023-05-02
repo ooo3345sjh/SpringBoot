@@ -6,7 +6,7 @@
 - 인가(Authorization)는 권한부여 또는 허가와 같은 의미로 인증 이후의 과정
 - 일반적으로 인증을 통해 사용자를 식별하고 인가를 통해 시스템 자원에 대한 접근을 통제
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/096d3dfb-b4b8-4449-9f4b-0af92cc5e5e3/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235748667-1222953a-267a-406f-8a2e-353180b86293.png)
 
 ## 2. Spring Security란?
 
@@ -22,7 +22,7 @@
 - UsernamePasswordAuthenticationFilter는 사용자가 입력한 정보를 이용해 인증을 처리
 - FilterSecurityInterceptor는 인증에 성공한 사용자가 해당 리소스에 접근할 권한이 있는지를 검증
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c97be581-d766-44c4-afaf-f8e66715d710/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/111489860/235748731-5cdd4672-ce27-4b04-bc84-5136220c0a68.png)
 
 ## 4. Spring Security 실습
 
