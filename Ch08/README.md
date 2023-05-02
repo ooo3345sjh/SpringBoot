@@ -124,7 +124,7 @@ public class User2Service {
 }
 ```
 
-### 3. Spring Security 환경설정
+### 4. Spring Security 환경설정
 
 1. WebSecurityConfigurerAdapter를 상속받아서 구현하는 방법(권장 X)
 
@@ -201,7 +201,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ```
 
-b. @Bean을 통한 구현하는 방법(권장 O)
+2. @Bean을 통한 구현하는 방법(권장 O)
 
 - 빈으로 등록하는 경우에는 위의 주석으로 달린 로그인 인증처리 서비스 등록이 자동으로 됨
 - PasswordEncoder  passwordEncoder() 를 선언해주면 해당 메서드를 통해 인코딩함
