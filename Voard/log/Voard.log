@@ -1,0 +1,955 @@
+2023-05-02 18:08:18.106  INFO 23000 --- [restartedMain] kr.co.vboard.VoardApplication            : Starting VoardApplication using Java 17.0.5 on DESKTOP-QOTDKI5 with PID 23000 (C:\Users\java2\Desktop\workspace\SpringBoot\Voard\target\classes started by java2 in C:\Users\java2\Desktop\workspace\SpringBoot\Voard)
+2023-05-02 18:08:18.107 DEBUG 23000 --- [restartedMain] kr.co.vboard.VoardApplication            : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-02 18:08:18.108  INFO 23000 --- [restartedMain] kr.co.vboard.VoardApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-05-02 18:08:18.169  INFO 23000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02 18:08:18.170  INFO 23000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02 18:08:18.955  INFO 23000 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02 18:08:19.030  INFO 23000 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 1 JPA repository interfaces.
+2023-05-02 18:08:19.834  INFO 23000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-05-02 18:08:19.855  INFO 23000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02 18:08:19.856  INFO 23000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-05-02 18:08:19.979  INFO 23000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02 18:08:19.979  INFO 23000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1809 ms
+2023-05-02 18:08:20.228  INFO 23000 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02 18:08:20.292  INFO 23000 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-05-02 18:08:20.502  INFO 23000 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-05-02 18:08:20.634  INFO 23000 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02 18:08:24.058 ERROR 23000 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:295) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:252) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:213) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:176) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:171) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:156) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4929) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:795) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:249) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.10.jar:2.7.10]
+	at kr.co.vboard.VoardApplication.main(VoardApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.10.jar:2.7.10]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 135 common frames omitted
+Caused by: java.net.UnknownHostException: 알려진 호스트가 없습니다 (voard_db)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1529) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:130) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 138 common frames omitted
+
+2023-05-02 18:08:24.066  WARN 23000 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:295) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:252) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:213) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:176) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:171) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:156) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4929) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:795) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:249) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.10.jar:2.7.10]
+	at kr.co.vboard.VoardApplication.main(VoardApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.10.jar:2.7.10]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 135 common frames omitted
+Caused by: java.net.UnknownHostException: 알려진 호스트가 없습니다 (voard_db)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1529) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:130) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 138 common frames omitted
+
+2023-05-02 18:08:24.082  INFO 23000 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-05-02 18:08:24.744  INFO 23000 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02 18:08:25.750 ERROR 23000 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:565) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:213) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:176) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:171) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:156) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4929) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:795) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:249) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.10.jar:2.7.10]
+	at kr.co.vboard.VoardApplication.main(VoardApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.10.jar:2.7.10]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 135 common frames omitted
+Caused by: java.net.UnknownHostException: voard_db
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:130) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 138 common frames omitted
+
+2023-05-02 18:08:25.751  WARN 23000 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08S01
+2023-05-02 18:08:25.752 ERROR 23000 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2023-05-02 18:08:25.757 ERROR 23000 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+2023-05-02 18:08:25.759 ERROR 23000 --- [restartedMain] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter': Unsatisfied dependency expressed through field 'securityUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityUserService': Unsatisfied dependency expressed through field 'repo'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepo' defined in kr.co.vboard.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot create inner bean '(inner bean)#4a64626d' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#4a64626d': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+2023-05-02 18:08:25.789  INFO 23000 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02 18:08:25.794  WARN 23000 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-05-02 18:08:25.803  INFO 23000 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-05-02 18:08:25.830 ERROR 23000 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.10.jar:2.7.10]
+	at kr.co.vboard.VoardApplication.main(VoardApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.10.jar:2.7.10]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-2.7.10.jar:2.7.10]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthenticationFilter': Unsatisfied dependency expressed through field 'securityUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityUserService': Unsatisfied dependency expressed through field 'repo'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepo' defined in kr.co.vboard.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot create inner bean '(inner bean)#4a64626d' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#4a64626d': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:213) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:176) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:171) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:156) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53) ~[spring-boot-2.7.10.jar:2.7.10]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4929) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:795) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:249) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.73.jar:9.0.73]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.7.10.jar:2.7.10]
+	... 18 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityUserService': Unsatisfied dependency expressed through field 'repo'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepo' defined in kr.co.vboard.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot create inner bean '(inner bean)#4a64626d' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#4a64626d': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	... 60 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepo' defined in kr.co.vboard.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot create inner bean '(inner bean)#4a64626d' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#4a64626d': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:389) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.26.jar:5.3.26]
+	... 74 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#4a64626d': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374) ~[spring-beans-5.3.26.jar:5.3.26]
+	... 87 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.26.jar:5.3.26]
+	... 95 common frames omitted
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.26.jar:5.3.26]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.26.jar:5.3.26]
+	... 102 common frames omitted
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:112) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:71) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:565) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.26.jar:5.3.26]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.26.jar:5.3.26]
+	... 106 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 122 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:944) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:814) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 135 common frames omitted
+Caused by: java.net.UnknownHostException: voard_db
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1519) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1377) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1305) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:130) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	... 138 common frames omitted
+
+2023-05-02 18:10:28.410  INFO 16444 --- [restartedMain] kr.co.vboard.VoardApplication            : Starting VoardApplication using Java 17.0.5 on DESKTOP-QOTDKI5 with PID 16444 (C:\Users\java2\Desktop\workspace\SpringBoot\Voard\target\classes started by java2 in C:\Users\java2\Desktop\workspace\SpringBoot\Voard)
+2023-05-02 18:10:28.411 DEBUG 16444 --- [restartedMain] kr.co.vboard.VoardApplication            : Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-05-02 18:10:28.412  INFO 16444 --- [restartedMain] kr.co.vboard.VoardApplication            : No active profile set, falling back to 1 default profile: "default"
+2023-05-02 18:10:28.463  INFO 16444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02 18:10:28.463  INFO 16444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02 18:10:29.152  INFO 16444 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02 18:10:29.217  INFO 16444 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interfaces.
+2023-05-02 18:10:29.883  INFO 16444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-05-02 18:10:29.896  INFO 16444 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02 18:10:29.896  INFO 16444 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-05-02 18:10:30.024  INFO 16444 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02 18:10:30.024  INFO 16444 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1560 ms
+2023-05-02 18:10:30.250  INFO 16444 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02 18:10:30.309  INFO 16444 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-05-02 18:10:30.488  INFO 16444 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-05-02 18:10:30.611  INFO 16444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02 18:10:30.912  INFO 16444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02 18:10:30.929  INFO 16444 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-05-02 18:10:31.588  INFO 16444 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02 18:10:31.601  INFO 16444 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02 18:10:31.966 DEBUG 16444 --- [restartedMain] k.co.vboard.jwt.JwtAuthenticationFilter  : Filter 'jwtAuthenticationFilter' configured for use
+2023-05-02 18:10:32.360  INFO 16444 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6a0e0462, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76050763, org.springframework.security.web.context.SecurityContextPersistenceFilter@44ae4368, org.springframework.security.web.header.HeaderWriterFilter@142d3d8f, org.springframework.security.web.authentication.logout.LogoutFilter@4a7bc7e5, kr.co.vboard.jwt.JwtAuthenticationFilter@1d4b6a88, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5679784e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e007bdf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cd52947, org.springframework.security.web.session.SessionManagementFilter@4d2ede5b, org.springframework.security.web.access.ExceptionTranslationFilter@2f1fac98]
+2023-05-02 18:10:32.419  WARN 16444 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02 18:10:32.583  INFO 16444 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-05-02 18:10:32.807  INFO 16444 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02 18:10:32.857  INFO 16444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-05-02 18:10:32.870  INFO 16444 --- [restartedMain] kr.co.vboard.VoardApplication            : Started VoardApplication in 4.869 seconds (JVM running for 5.726)
+2023-05-02 18:12:43.056  INFO 16444 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02 18:12:43.056  INFO 16444 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02 18:12:43.057  INFO 16444 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02 18:12:43.079  INFO 16444 --- [http-nio-80-exec-1] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:12:43.117  INFO 16444 --- [http-nio-80-exec-2] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:12:43.213 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.controller.UserController   : UserVO(uid=a101, pass=1234, name=null, nick=null, email=null, hp=null, grade=null, zip=null, addr=null, addrDetail=null, regip=null, rdate=null, wdate=null)
+2023-05-02 18:12:43.213 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.controller.UserController   : login...1
+2023-05-02 18:12:43.276 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.controller.UserController   : login...2
+2023-05-02 18:12:43.454 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.controller.UserController   : login...3
+2023-05-02 18:12:43.498 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.controller.UserController   : login...4 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhMTAxIiwiaWF0IjoxNjgzMDE4NzYzLCJleHAiOjE2ODMwMjIzNjN9.HD30-8R_ycRiYmSWTPzU2oqVbrgT0ksytMQid6Eltqs
+2023-05-02 18:12:43.552  INFO 16444 --- [http-nio-80-exec-3] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:12:43.561  INFO 16444 --- [http-nio-80-exec-3] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:12:43.585 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:12:43.602 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:12:43.624 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:12:43.626 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:12:43.626 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:12:43.634 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:12:43.634 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:12:55.728  INFO 16444 --- [http-nio-80-exec-4] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:12:55.734  INFO 16444 --- [http-nio-80-exec-5] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:12:55.735 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.controller.UserController   : UserVO(uid=a101, pass=1234, name=null, nick=null, email=null, hp=null, grade=null, zip=null, addr=null, addrDetail=null, regip=null, rdate=null, wdate=null)
+2023-05-02 18:12:55.735 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.controller.UserController   : login...1
+2023-05-02 18:12:55.740 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.controller.UserController   : login...2
+2023-05-02 18:12:55.831 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.controller.UserController   : login...3
+2023-05-02 18:12:55.833 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.controller.UserController   : login...4 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhMTAxIiwiaWF0IjoxNjgzMDE4Nzc1LCJleHAiOjE2ODMwMjIzNzV9.tEuqhbszDLSh0vTTZ4F4ls12nmvSI1TE53JKdfDPcy4
+2023-05-02 18:12:55.847  INFO 16444 --- [http-nio-80-exec-6] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:12:55.850  INFO 16444 --- [http-nio-80-exec-6] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:12:55.850 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:12:55.850 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:12:55.850 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:12:55.851 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:12:55.851 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:12:55.857 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:12:55.858 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:18:22.730  INFO 16444 --- [http-nio-80-exec-8] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:18:22.733 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.UserDAO.selectTerms     : ==>  Preparing: SELECT * FROM `board_terms`;
+2023-05-02 18:18:22.734 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.UserDAO.selectTerms     : ==> Parameters: 
+2023-05-02 18:18:22.744 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.UserDAO.selectTerms     : <==      Total: 1
+2023-05-02 18:21:27.643  INFO 16444 --- [http-nio-80-exec-10] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:21:27.646 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.controller.UserController   : UserVO(uid=a101, pass=1234, name=null, nick=null, email=null, hp=null, grade=null, zip=null, addr=null, addrDetail=null, regip=null, rdate=null, wdate=null)
+2023-05-02 18:21:27.646 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.controller.UserController   : login...1
+2023-05-02 18:21:27.651 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.controller.UserController   : login...2
+2023-05-02 18:21:27.746 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.controller.UserController   : login...3
+2023-05-02 18:21:27.747 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.controller.UserController   : login...4 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhMTAxIiwiaWF0IjoxNjgzMDE5Mjg3LCJleHAiOjE2ODMwMjI4ODd9.hTaYj4Ei0cDMjckVTsB_ddkrRPYrJ9s7aNgzZtDb9KI
+2023-05-02 18:21:27.763  INFO 16444 --- [http-nio-80-exec-1] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:21:27.765  INFO 16444 --- [http-nio-80-exec-1] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:21:27.765 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:21:27.765 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:21:27.767 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:21:27.767 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:21:27.767 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:21:27.769 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:21:27.770 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:21:39.011  INFO 16444 --- [http-nio-80-exec-2] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:21:39.015  INFO 16444 --- [http-nio-80-exec-2] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:21:39.015 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:21:39.015 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:21:39.016 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:21:39.017 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:21:39.017 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:21:39.020 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:21:39.020 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:24:28.875  INFO 16444 --- [http-nio-80-exec-4] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:24:28.879 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.UserDAO.selectTerms     : ==>  Preparing: SELECT * FROM `board_terms`;
+2023-05-02 18:24:28.879 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.UserDAO.selectTerms     : ==> Parameters: 
+2023-05-02 18:24:28.883 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.UserDAO.selectTerms     : <==      Total: 1
+2023-05-02 18:24:39.617  INFO 16444 --- [http-nio-80-exec-5] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:24:39.629 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.controller.UserController   : b123
+2023-05-02 18:25:06.482  INFO 16444 --- [http-nio-80-exec-6] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:06.486  INFO 16444 --- [http-nio-80-exec-7] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:12.648  INFO 16444 --- [http-nio-80-exec-8] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:12.649 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.controller.UserController   : UserVO(uid=b123, pass=dsaewq321, name=null, nick=null, email=null, hp=null, grade=null, zip=null, addr=null, addrDetail=null, regip=null, rdate=null, wdate=null)
+2023-05-02 18:25:12.650 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.controller.UserController   : login...1
+2023-05-02 18:25:12.654 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.controller.UserController   : login...2
+2023-05-02 18:25:12.758 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.controller.UserController   : login...3
+2023-05-02 18:25:12.760 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.controller.UserController   : login...4 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiMTIzIiwiaWF0IjoxNjgzMDE5NTEyLCJleHAiOjE2ODMwMjMxMTJ9.O5-L8diPQi5s94SlLGmSbO6Fo9eZlZlFRGlHUHBeUNQ
+2023-05-02 18:25:12.778  INFO 16444 --- [http-nio-80-exec-9] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:12.780  INFO 16444 --- [http-nio-80-exec-9] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:12.780 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:12.780 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:12.782 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:12.782 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:12.782 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:25:12.784 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:12.786 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:16.917  INFO 16444 --- [http-nio-80-exec-10] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:16.920  INFO 16444 --- [http-nio-80-exec-10] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:16.920 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:16.921 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:16.922 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:16.922 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:16.922 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 10(Integer)
+2023-05-02 18:25:16.927 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:16.928 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.service.ArticleService      : [ArticleVO(no=454, parent=0, comment=0, cate=event, title=event216, content=content216, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=453, parent=0, comment=0, cate=event, title=event215, content=content215, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=452, parent=0, comment=0, cate=event, title=event214, content=content214, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=451, parent=0, comment=0, cate=event, title=event213, content=content213, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=450, parent=0, comment=0, cate=event, title=event212, content=content212, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=449, parent=0, comment=0, cate=event, title=event211, content=content211, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=448, parent=0, comment=0, cate=event, title=event210, content=content210, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=447, parent=0, comment=0, cate=event, title=event209, content=content209, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=446, parent=0, comment=0, cate=event, title=event208, content=content208, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=445, parent=0, comment=0, cate=event, title=event207, content=content207, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:17.596  INFO 16444 --- [http-nio-80-exec-1] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:17.598  INFO 16444 --- [http-nio-80-exec-1] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:17.598 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:17.598 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:17.599 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:17.600 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:17.601 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 20(Integer)
+2023-05-02 18:25:17.607 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:17.608 DEBUG 16444 --- [http-nio-80-exec-1] kr.co.vboard.service.ArticleService      : [ArticleVO(no=444, parent=0, comment=0, cate=event, title=event206, content=content206, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=443, parent=0, comment=0, cate=event, title=event205, content=content205, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=442, parent=0, comment=0, cate=event, title=event204, content=content204, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=441, parent=0, comment=0, cate=event, title=event203, content=content203, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=440, parent=0, comment=0, cate=event, title=event202, content=content202, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=439, parent=0, comment=0, cate=event, title=event201, content=content201, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=438, parent=0, comment=0, cate=event, title=event200, content=content200, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=437, parent=0, comment=0, cate=event, title=event199, content=content199, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=436, parent=0, comment=0, cate=event, title=event198, content=content198, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=435, parent=0, comment=0, cate=event, title=event197, content=content197, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:18.621  INFO 16444 --- [http-nio-80-exec-2] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:18.623  INFO 16444 --- [http-nio-80-exec-2] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:18.623 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:18.623 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:18.624 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:18.625 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:18.625 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 50(Integer)
+2023-05-02 18:25:18.628 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:18.629 DEBUG 16444 --- [http-nio-80-exec-2] kr.co.vboard.service.ArticleService      : [ArticleVO(no=414, parent=0, comment=0, cate=event, title=event176, content=content176, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=413, parent=0, comment=0, cate=event, title=event175, content=content175, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=412, parent=0, comment=0, cate=event, title=event174, content=content174, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=411, parent=0, comment=0, cate=event, title=event173, content=content173, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=410, parent=0, comment=0, cate=event, title=event172, content=content172, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=409, parent=0, comment=0, cate=event, title=event171, content=content171, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=408, parent=0, comment=0, cate=event, title=event170, content=content170, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=407, parent=0, comment=0, cate=event, title=event169, content=content169, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=406, parent=0, comment=0, cate=event, title=event168, content=content168, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=405, parent=0, comment=0, cate=event, title=event167, content=content167, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:19.365  INFO 16444 --- [http-nio-80-exec-3] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:19.369  INFO 16444 --- [http-nio-80-exec-3] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:19.369 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:19.369 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:19.370 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:19.371 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:19.371 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 70(Integer)
+2023-05-02 18:25:19.374 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:19.374 DEBUG 16444 --- [http-nio-80-exec-3] kr.co.vboard.service.ArticleService      : [ArticleVO(no=394, parent=0, comment=0, cate=event, title=event156, content=content156, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=393, parent=0, comment=0, cate=event, title=event155, content=content155, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=392, parent=0, comment=0, cate=event, title=event154, content=content154, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=391, parent=0, comment=0, cate=event, title=event153, content=content153, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=390, parent=0, comment=0, cate=event, title=event152, content=content152, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=389, parent=0, comment=0, cate=event, title=event151, content=content151, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=388, parent=0, comment=0, cate=event, title=event150, content=content150, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=387, parent=0, comment=0, cate=event, title=event149, content=content149, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=386, parent=0, comment=0, cate=event, title=event148, content=content148, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=385, parent=0, comment=0, cate=event, title=event147, content=content147, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:20.127  INFO 16444 --- [http-nio-80-exec-4] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:20.130  INFO 16444 --- [http-nio-80-exec-4] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:20.130 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:20.131 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:20.132 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:20.132 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:20.132 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 90(Integer)
+2023-05-02 18:25:20.135 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:20.135 DEBUG 16444 --- [http-nio-80-exec-4] kr.co.vboard.service.ArticleService      : [ArticleVO(no=374, parent=0, comment=0, cate=event, title=event136, content=content136, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=373, parent=0, comment=0, cate=event, title=event135, content=content135, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=372, parent=0, comment=0, cate=event, title=event134, content=content134, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=371, parent=0, comment=0, cate=event, title=event133, content=content133, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=370, parent=0, comment=0, cate=event, title=event132, content=content132, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=369, parent=0, comment=0, cate=event, title=event131, content=content131, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=368, parent=0, comment=0, cate=event, title=event130, content=content130, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=367, parent=0, comment=0, cate=event, title=event129, content=content129, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=366, parent=0, comment=0, cate=event, title=event128, content=content128, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=365, parent=0, comment=0, cate=event, title=event127, content=content127, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:21.111  INFO 16444 --- [http-nio-80-exec-5] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:21.114  INFO 16444 --- [http-nio-80-exec-5] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:21.114 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:21.115 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:21.116 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:21.116 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:21.117 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:25:21.119 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:21.119 DEBUG 16444 --- [http-nio-80-exec-5] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:21.715  INFO 16444 --- [http-nio-80-exec-6] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:21.722  INFO 16444 --- [http-nio-80-exec-6] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:21.723 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:21.723 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:21.724 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:21.724 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:21.724 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:25:21.726 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:21.728 DEBUG 16444 --- [http-nio-80-exec-6] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:22.281  INFO 16444 --- [http-nio-80-exec-7] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:22.283  INFO 16444 --- [http-nio-80-exec-7] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:22.284 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:22.284 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:22.285 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:22.285 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:22.285 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:25:22.287 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:22.287 DEBUG 16444 --- [http-nio-80-exec-7] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:25:22.527  INFO 16444 --- [http-nio-80-exec-8] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:25:22.528  INFO 16444 --- [http-nio-80-exec-8] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:25:22.529 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:25:22.529 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:25:22.530 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:25:22.530 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:25:22.530 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:25:22.532 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:25:22.532 DEBUG 16444 --- [http-nio-80-exec-8] kr.co.vboard.service.ArticleService      : [ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=455, parent=0, comment=0, cate=event, title=event217, content=content217, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]
+2023-05-02 18:26:00.961  INFO 16444 --- [http-nio-80-exec-9] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:26:00.967  WARN 16444 --- [http-nio-80-exec-9] org.apache.catalina.connector.Request    : Creating the temporary upload location [C:\Users\java2\AppData\Local\Temp\tomcat.80.8795210101751270208\work\Tomcat\localhost\ROOT\file] as it is required by the servlet [dispatcherServlet]
+2023-05-02 18:26:01.016 DEBUG 16444 --- [http-nio-80-exec-9] k.c.vboard.controller.ArticleController  : ArticleVO(no=0, parent=0, comment=0, cate=null, title=테스트, content=테스트 입니다., file=0, hit=0, uid=b123, regip=null, rdate=null, fname=org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@2604cec4, nick=null)
+2023-05-02 18:26:01.017 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.insert       : ==>  Preparing: INSERT INTO `board_article` SET `title`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=NOW()
+2023-05-02 18:26:01.018 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.insert       : ==> Parameters: 테스트(String), 테스트 입니다.(String), b123(String), 0:0:0:0:0:0:0:1(String)
+2023-05-02 18:26:01.019 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.ArticleDAO.insert       : <==    Updates: 1
+2023-05-02 18:26:01.024  INFO 16444 --- [http-nio-80-exec-9] kr.co.vboard.service.FileService         : ArticleService fileUpload...
+2023-05-02 18:26:01.026 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.FileDAO.insert          : ==>  Preparing: INSERT INTO `board_file` SET `parent` = ?, `newName`= ?, `oriName` = ?;
+2023-05-02 18:26:01.027 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.FileDAO.insert          : ==> Parameters: 0(Integer), b3c77e1b-de35-41b7-b5a9-fe0d49c623df.PNG(String), 222.PNG(String)
+2023-05-02 18:26:01.032 DEBUG 16444 --- [http-nio-80-exec-9] kr.co.vboard.dao.FileDAO.insert          : <==    Updates: 1
+2023-05-02 18:26:02.085  INFO 16444 --- [http-nio-80-exec-10] k.co.vboard.jwt.JwtAuthenticationFilter  : filter1... : null
+2023-05-02 18:26:02.087  INFO 16444 --- [http-nio-80-exec-10] kr.co.vboard.service.ArticleService      : ArticleService getArticles...
+2023-05-02 18:26:02.088 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.countAll     : ==>  Preparing: SELECT COUNT(*) FROM `board_article` WHERE `parent`=0
+2023-05-02 18:26:02.088 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.countAll     : ==> Parameters: 
+2023-05-02 18:26:02.089 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.countAll     : <==      Total: 1
+2023-05-02 18:26:02.090 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.selectAll    : ==>  Preparing: SELECT a.*, u.nick FROM `board_article` as a JOIN `board_user` as u ON a.`uid` = u.`uid` WHERE `parent` = 0 ORDER BY `no` DESC LIMIT ?, 10;
+2023-05-02 18:26:02.090 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.selectAll    : ==> Parameters: 0(Integer)
+2023-05-02 18:26:02.092 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.dao.ArticleDAO.selectAll    : <==      Total: 10
+2023-05-02 18:26:02.092 DEBUG 16444 --- [http-nio-80-exec-10] kr.co.vboard.service.ArticleService      : [ArticleVO(no=484, parent=0, comment=0, cate=free, title=테스트, content=테스트 입니다., file=0, hit=0, uid=b123, regip=0:0:0:0:0:0:0:1, rdate=Tue May 02 18:26:01 KST 2023, fname=null, nick=아무개), ArticleVO(no=483, parent=0, comment=0, cate=free, title=123, content=123, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Wed Apr 26 17:04:22 KST 2023, fname=null, nick=혀니), ArticleVO(no=463, parent=0, comment=0, cate=event, title=sad, content=asd, file=1, hit=2, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Thu Feb 09 18:44:50 KST 2023, fname=null, nick=혀니), ArticleVO(no=462, parent=0, comment=19, cate=event, title=event224, content=content224qweqw, file=0, hit=11, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=461, parent=0, comment=0, cate=event, title=event223, content=content223, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=460, parent=0, comment=0, cate=event, title=event222, content=content222, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=459, parent=0, comment=0, cate=event, title=event221, content=content221, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=458, parent=0, comment=0, cate=event, title=event220, content=content220, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=457, parent=0, comment=0, cate=event, title=event219, content=content219, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니), ArticleVO(no=456, parent=0, comment=0, cate=event, title=event218, content=content218, file=0, hit=0, uid=a101, regip=0:0:0:0:0:0:0:1, rdate=Fri Jan 27 19:43:02 KST 2023, fname=null, nick=혀니)]

@@ -38,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@CrossOrigin(value = "*", allowedHeaders = "*") // 개발시에만 필요
 @AllArgsConstructor
 public class ArticleController {
 	
