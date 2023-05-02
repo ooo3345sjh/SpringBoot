@@ -16,6 +16,7 @@
 ![list](https://user-images.githubusercontent.com/111489860/235757722-0b1f335e-4ae6-4265-9e92-a24e5ac0fc59.png)
 
 ## 게시글 작성
+![write](https://user-images.githubusercontent.com/111489860/235758440-14f2d3b0-ee14-4a4d-b540-893890baef66.png)
 
 ## 게시글 보기
-
+![view](https://user-images.githubusercontent.com/111489860/235759233-95d0e1da-500b-4f0a-9f89-bf7a1e42dc9e.png)
